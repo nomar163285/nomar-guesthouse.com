@@ -6,3 +6,7 @@ data/reservations.csv
 # 制作時の参考資料・旧デザイン案（公開サイトには不要）
 *.pdf
 のまー 案1 アウトドア.html
+
+# Discord Bot関連（トークン等の機密情報を含むため公開しない）
+discord-bot/.env
+discord-bot/node_modules/
