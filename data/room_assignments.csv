@@ -1,0 +1,3 @@
+id,room_id,reservation_id,night
+# ★重要ルール: (room_id, night) の組み合わせは重複させない（1部屋1泊1予約）。
+# これが二重予約を防ぐ核。将来DB化する際はこの組に一意制約を付ける。

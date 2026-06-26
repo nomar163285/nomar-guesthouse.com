@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>guesthouse のまー (nomar) | Affordable Stay in Komagane, Nagano</title>
+<meta name="description" content="A budget guesthouse in Komagane, Nagano — 3 min walk from the station and bus terminal. Dorm beds from ¥3,500/night.">
+<style>
+  :root {
+    --moss: #5c6f47;
+    --moss-dark: #3f4d30;
+    --terracotta: #c06a4d;
+    --sand: #f3ecdd;
+    --sand-light: #faf9f5;
+    --ink: #2e2a22;
+    --line: #e3dcc8;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans JP", sans-serif;
+    color: var(--ink);
+    background: var(--sand-light);
+    line-height: 1.7;
+  }
+  img { max-width: 100%; display: block; }
+  a { color: inherit; }
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 0 20px; }
+
+  header {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(250,249,245,0.95);
+    border-bottom: 1px solid var(--line);
+    backdrop-filter: blur(4px);
+  }
+  header .wrap {
+    display: flex; align-items: center; justify-content: space-between;
+    height: 64px;
+  }
+  .logo { display: flex; align-items: center; gap: 10px; font-weight: bold; font-size: 1.1rem; }
+  .logo img { width: 36px; height: 36px; border-radius: 8px; object-fit: cover; }
+  nav { display: none; gap: 24px; font-size: 0.9rem; }
+  nav a { text-decoration: none; }
+  .header-right { display: flex; align-items: center; gap: 8px; }
+  .header-cta {
+    background: var(--moss); color: #fff; padding: 8px 16px;
+    border-radius: 20px; font-size: 0.85rem; text-decoration: none;
+    white-space: nowrap;
+  }
+  .lang-switch {
+    background: transparent; color: var(--moss); border: 1px solid var(--moss);
+    padding: 7px 14px; border-radius: 20px; font-size: 0.85rem; text-decoration: none;
+  }
+  @media (min-width: 768px) {
+    nav { display: flex; }
+  }
+
+  .hero {
+    position: relative;
+    background: linear-gradient(180deg, var(--moss-dark) 0%, var(--moss) 60%, var(--sand) 100%);
+    color: #fff;
+    padding: 64px 20px 100px;
+    text-align: center;
+    overflow: hidden;
+  }
+  .hero-mountains { position: absolute; bottom: 0; left: 0; width: 100%; line-height: 0; }
+  .hero-mountains svg { width: 100%; display: block; }
+  .hero-content { position: relative; z-index: 2; max-width: 640px; margin: 0 auto; }
+  .hero-eyebrow {
+    font-size: 0.8rem; letter-spacing: 0.15em; text-transform: uppercase;
+    opacity: 0.85; margin-bottom: 16px;
+  }
+  .hero h1 { font-size: 2.1rem; font-weight: 800; margin-bottom: 12px; line-height: 1.4; }
+  .hero p.sub { font-size: 1.05rem; opacity: 0.95; margin-bottom: 32px; }
+  .hero-photo-note {
+    margin: 0 auto 28px; max-width: 480px;
+    border: 1.5px dashed rgba(255,255,255,0.5);
+    border-radius: 12px; padding: 14px 16px;
+    font-size: 0.78rem; opacity: 0.8; line-height: 1.6;
+  }
+  .cta-group { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+  .btn {
+    display: inline-block; padding: 14px 28px; border-radius: 28px;
+    font-weight: bold; text-decoration: none; font-size: 0.95rem;
+    transition: transform 0.15s ease;
+  }
+  .btn:hover { transform: translateY(-2px); }
+  .btn-primary { background: var(--terracotta); color: #fff; }
+  .btn-secondary { background: rgba(255,255,255,0.15); color: #fff; border: 1px solid rgba(255,255,255,0.6); }
+
+  @media (min-width: 768px) {
+    .hero { padding: 90px 20px 140px; }
+    .hero h1 { font-size: 2.8rem; }
+    .hero p.sub { font-size: 1.2rem; }
+  }
+
+  /* Poster-style banner (top of page) */
+  .top-banner {
+    position: relative;
+    aspect-ratio: 4/3;
+    background:
+      linear-gradient(180deg, rgba(20,30,15,0.05) 0%, rgba(20,30,15,0.35) 100%),
+      repeating-linear-gradient(115deg, #6b7d4a, #6b7d4a 18px, #5c6f47 18px, #5c6f47 36px),
+      linear-gradient(180deg, #87a368 0%, #5c6f47 45%, #3f4d30 100%);
+    overflow: hidden;
+    color: #fff;
+  }
+  @media (min-width: 700px) {
+    .top-banner { aspect-ratio: 16/7; }
+  }
+  .top-banner .photo-note {
+    position: absolute; top: 10px; left: 10px; right: 10px;
+    font-size: 0.65rem; opacity: 0.6; text-align: center;
+    border: 1px dashed rgba(255,255,255,0.4); border-radius: 8px;
+    padding: 4px 8px; z-index: 5;
+  }
+  .banner-tagline {
+    position: absolute; top: 14%; right: 5%; z-index: 4;
+    background: rgba(255,255,255,0.92); color: var(--ink);
+    padding: 8px 16px; border-radius: 20px;
+    font-size: 0.7rem; font-weight: bold; letter-spacing: 0.02em;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  }
+  .banner-headline {
+    position: absolute; left: 4%; top: 50%; transform: translateY(-50%);
+    z-index: 4;
+    font-size: 1.5rem; font-weight: 900; line-height: 1.25;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.35);
+    max-width: 40%;
+  }
+  .banner-headline .accent { color: var(--terracotta); }
+  .banner-logo-wrap {
+    position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);
+    z-index: 4; text-align: center;
+  }
+  .banner-logo-wrap img {
+    width: 140px; height: auto; margin: 0 auto;
+    filter: drop-shadow(0 4px 10px rgba(0,0,0,0.25));
+  }
+  @media (min-width: 700px) {
+    .banner-headline { font-size: 2.3rem; left: 6%; }
+    .banner-logo-wrap img { width: 220px; }
+    .banner-tagline { font-size: 0.85rem; padding: 10px 22px; }
+  }
+  .hero-below {
+    background: var(--moss-dark); color: #fff;
+    padding: 36px 20px 90px; text-align: center; position: relative; overflow: hidden;
+  }
+  .hero-below .hero-content { max-width: 640px; margin: 0 auto; position: relative; z-index: 2; }
+  .hero-below .sub { font-size: 1.05rem; opacity: 0.95; margin-bottom: 28px; }
+  @media (min-width: 768px) {
+    .hero-below { padding: 48px 20px 120px; }
+    .hero-below .sub { font-size: 1.2rem; }
+  }
+
+  section { padding: 64px 20px; }
+  .section-title { text-align: center; margin-bottom: 36px; }
+  .section-title .eyebrow {
+    display: block; font-size: 0.78rem; letter-spacing: 0.12em;
+    color: var(--moss); text-transform: uppercase; margin-bottom: 8px;
+    font-weight: bold;
+  }
+  .section-title h2 { font-size: 1.5rem; font-weight: 800; }
+  .section-title p { margin-top: 10px; font-size: 0.92rem; color: #6b6452; }
+  @media (min-width: 768px) {
+    section { padding: 96px 20px; }
+    .section-title h2 { font-size: 2rem; }
+  }
+
+  .photo-ph {
+    background: repeating-linear-gradient(45deg, #ece4cf, #ece4cf 10px, #e4dcc4 10px, #e4dcc4 20px);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+    color: #8c8468; font-size: 0.78rem; text-align: center;
+    padding: 16px; line-height: 1.6;
+    aspect-ratio: 4/3;
+  }
+
+  .concept { background: var(--sand); }
+  .concept-grid { display: grid; gap: 28px; align-items: center; }
+  .concept-text p { margin-bottom: 14px; font-size: 0.98rem; }
+  .concept-text .lead {
+    font-size: 1.1rem; font-weight: bold; color: var(--moss-dark);
+    margin-bottom: 18px;
+  }
+  @media (min-width: 768px) {
+    .concept-grid { grid-template-columns: 1fr 1fr; gap: 48px; }
+  }
+
+  .room-cards { display: grid; gap: 20px; grid-template-columns: 1fr; }
+  @media (min-width: 768px) {
+    .room-cards { grid-template-columns: repeat(3, 1fr); }
+  }
+  .room-card {
+    background: #fff; border: 1px solid var(--line); border-radius: 16px;
+    overflow: hidden; display: flex; flex-direction: column;
+  }
+  .room-card .photo-ph { aspect-ratio: 16/10; border-radius: 0; border: none; border-bottom: 1px solid var(--line); }
+  .room-card-body { padding: 20px; flex: 1; display: flex; flex-direction: column; }
+  .room-card h3 { font-size: 1.05rem; margin-bottom: 4px; }
+  .room-card .price { font-size: 1.6rem; font-weight: 800; color: var(--terracotta); margin: 8px 0 4px; }
+  .room-card .price span { font-size: 0.85rem; font-weight: normal; color: var(--ink); }
+  .room-card .note { font-size: 0.78rem; color: #6b6452; margin-bottom: 12px; }
+  .room-card ul { list-style: none; font-size: 0.85rem; margin-top: auto; }
+  .room-card ul li { padding: 4px 0; border-top: 1px dashed var(--line); }
+  .room-card ul li:first-child { border-top: none; }
+  .room-rules {
+    margin-top: 28px; background: #fff; border: 1px solid var(--line);
+    border-radius: 12px; padding: 18px 20px; font-size: 0.85rem;
+  }
+  .room-rules ul { padding-left: 1.1em; }
+  .room-rules li { margin-bottom: 4px; }
+
+  .amenity-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
+  @media (min-width: 768px) {
+    .amenity-grid { grid-template-columns: repeat(4, 1fr); }
+  }
+  .amenity-item {
+    background: #fff; border: 1px solid var(--line); border-radius: 12px;
+    padding: 18px 14px; text-align: center; font-size: 0.85rem;
+  }
+  .amenity-item .icon { font-size: 1.6rem; margin-bottom: 8px; display: block; }
+  .amenity-item .label { font-weight: bold; margin-bottom: 4px; }
+  .amenity-item .desc { font-size: 0.75rem; color: #6b6452; }
+
+  .area-tabs-title { font-weight: bold; color: var(--moss-dark); margin: 28px 0 14px; font-size: 1.05rem; }
+  .area-grid { display: grid; gap: 18px; grid-template-columns: 1fr; }
+  @media (min-width: 600px) { .area-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (min-width: 980px) { .area-grid { grid-template-columns: repeat(3, 1fr); } }
+  .area-card { background: #fff; border: 1px solid var(--line); border-radius: 14px; overflow: hidden; }
+  .area-card .photo-ph { aspect-ratio: 16/10; border-radius: 0; border: none; border-bottom: 1px solid var(--line); }
+  .area-card-body { padding: 16px; }
+  .area-card h4 { font-size: 0.95rem; margin-bottom: 6px; }
+  .area-card p { font-size: 0.82rem; color: #56503f; }
+  .area-card .link-note {
+    display: inline-block; margin-top: 10px; font-size: 0.75rem;
+    color: var(--moss); border-bottom: 1px dashed var(--moss);
+  }
+
+  .access { background: var(--moss-dark); color: #fff; }
+  .access .section-title h2, .access .section-title p { color: #fff; }
+  .access-grid { display: grid; gap: 28px; }
+  @media (min-width: 768px) { .access-grid { grid-template-columns: 1fr 1fr; } }
+  .access-info dl { font-size: 0.9rem; }
+  .access-info dt { font-weight: bold; opacity: 0.8; margin-top: 14px; font-size: 0.78rem; letter-spacing: 0.05em; }
+  .access-info dd { margin-top: 2px; }
+  table.bus-table {
+    width: 100%; border-collapse: collapse; font-size: 0.85rem; margin-top: 10px;
+    background: rgba(255,255,255,0.06); border-radius: 10px; overflow: hidden;
+  }
+  table.bus-table th, table.bus-table td {
+    padding: 10px 12px; text-align: left; border-bottom: 1px solid rgba(255,255,255,0.15);
+  }
+  table.bus-table th { font-size: 0.78rem; opacity: 0.8; }
+
+  .faq-list { max-width: 720px; margin: 0 auto; }
+  details {
+    background: #fff; border: 1px solid var(--line); border-radius: 12px;
+    margin-bottom: 12px; padding: 16px 18px;
+  }
+  summary {
+    cursor: pointer; font-weight: bold; font-size: 0.95rem;
+    list-style: none; position: relative; padding-right: 24px;
+  }
+  summary::-webkit-details-marker { display: none; }
+  summary::after { content: "+"; position: absolute; right: 0; top: 0; font-size: 1.2rem; color: var(--moss); }
+  details[open] summary::after { content: "−"; }
+  details p { margin-top: 10px; font-size: 0.88rem; color: #4a4636; }
+
+  .reserve { background: var(--sand); text-align: center; }
+  .reserve-box {
+    max-width: 560px; margin: 0 auto; background: #fff;
+    border: 1px solid var(--line); border-radius: 20px; padding: 36px 28px;
+  }
+  .reserve-box p.lead { font-weight: bold; font-size: 1.1rem; margin-bottom: 6px; }
+  .reserve-box p.small { font-size: 0.8rem; color: #6b6452; margin-bottom: 24px; }
+  .reserve-btns { display: flex; flex-direction: column; gap: 10px; }
+  @media (min-width: 480px) { .reserve-btns { flex-direction: row; justify-content: center; } }
+  .btn-outline {
+    border: 1.5px solid var(--moss); color: var(--moss); background: transparent;
+    padding: 13px 24px; border-radius: 24px; font-weight: bold; text-decoration: none; font-size: 0.9rem;
+  }
+  .reserve-note { margin-top: 18px; font-size: 0.72rem; color: #9a9379; }
+
+  footer { background: var(--moss-dark); color: rgba(255,255,255,0.85); padding: 48px 20px 28px; font-size: 0.85rem; }
+  .footer-grid { display: grid; gap: 28px; margin-bottom: 28px; }
+  @media (min-width: 768px) { .footer-grid { grid-template-columns: 1.2fr 1fr 1fr; } }
+  .footer-logo { display: flex; align-items: center; gap: 10px; font-weight: bold; color: #fff; margin-bottom: 10px; }
+  .footer-logo img { width: 32px; height: 32px; border-radius: 8px; }
+  footer h5 { color: #fff; font-size: 0.78rem; letter-spacing: 0.08em; margin-bottom: 10px; opacity: 0.7; }
+  footer ul { list-style: none; }
+  footer li { margin-bottom: 6px; }
+  .footer-bottom {
+    text-align: center; font-size: 0.72rem; opacity: 0.5;
+    border-top: 1px solid rgba(255,255,255,0.15); padding-top: 18px;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <div class="logo">
+      <img src="assets/logo.jpeg" alt="guesthouse のまー logo">
+      <span>guesthouse のまー</span>
+    </div>
+    <nav>
+      <a href="#concept">About</a>
+      <a href="#rooms">Rooms &amp; Price</a>
+      <a href="#area">Area Guide</a>
+      <a href="#access">Access</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <div class="header-right">
+      <a href="index.html" class="lang-switch">日本語</a>
+      <a href="#reserve" class="header-cta">Check Availability</a>
+    </div>
+  </div>
+</header>
+
+<section class="top-banner">
+  <div class="photo-note">[Photo placeholder] Central Alps mountain range as backdrop (same composition as the poster)</div>
+  <div class="banner-tagline">A quick rest along your journey</div>
+  <div class="banner-headline">Where Mountains <span class="accent">Meet</span> Town</div>
+  <div class="banner-logo-wrap">
+    <img src="assets/logo.jpeg" alt="guesthouse のまー logo">
+  </div>
+</section>
+
+<section class="hero-below">
+  <div class="hero-content">
+    <p class="sub">guesthouse のまー / nomar</p>
+    <div class="cta-group">
+      <a href="#reserve" class="btn btn-primary">Check Availability</a>
+      <a href="#concept" class="btn btn-secondary">About the Guesthouse</a>
+    </div>
+  </div>
+  <div class="hero-mountains">
+    <svg viewBox="0 0 1440 160" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0,160 L0,90 L180,30 L260,70 L340,40 L460,100 L600,20 L760,90 L900,50 L1040,110 L1180,40 L1320,80 L1440,50 L1440,160 Z" fill="#f3ecdd"/>
+    </svg>
+  </div>
+</section>
+
+<section class="concept" id="concept">
+  <div class="wrap">
+    <div class="section-title">
+      <span class="eyebrow">Concept</span>
+      <h2>A budget stay. The "LCC of guesthouses" for hikers.</h2>
+    </div>
+    <div class="concept-grid">
+      <div class="concept-text">
+        <p class="lead">We built a budget guesthouse in Komagane.</p>
+        <p>For people heading into the mountains, and for those just passing through — we wanted to give travelers one more option for "where to stay." Until now, Komagane didn't have an affordable guesthouse.</p>
+        <p>There's a shopping street right near us. Take your time, stop by the local restaurants, and enjoy the journey.</p>
+        <p>We're proud of our access: direct highway buses from Shinjuku, Nagoya, Osaka and Kyoto to Komagane Bus Terminal, and just a 3-minute walk from the station/terminal to the guesthouse.</p>
+      </div>
+      <div class="photo-ph">
+        [Photo placeholder] Exterior / sign / entrance of the guesthouse, or a snapshot of the common space
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="rooms">
+  <div class="wrap">
+    <div class="section-title">
+      <span class="eyebrow">Rooms &amp; Price</span>
+      <h2>Rooms &amp; Price</h2>
+      <p>All prices include tax. Rates may vary depending on the season.</p>
+    </div>
+    <div class="room-cards">
+      <div class="room-card">
+        <div class="photo-ph">[Photo placeholder] Mixed dorm — full view of bunk beds</div>
+        <div class="room-card-body">
+          <h3>Mixed Dormitory</h3>
+          <div class="price">¥3,500<span> / person / night</span></div>
+          <div class="note">+¥500 on weekends　／　6 beds</div>
+          <ul>
+            <li>Bunk beds</li>
+            <li>Outlet at every bed</li>
+            <li>Reading light at every bed</li>
+          </ul>
+        </div>
+      </div>
+      <div class="room-card">
+        <div class="photo-ph">[Photo placeholder] Female-only dormitory</div>
+        <div class="room-card-body">
+          <h3>Female-only Dormitory</h3>
+          <div class="price">¥3,500<span> / person / night</span></div>
+          <div class="note">+¥500 on weekends　／　4 beds</div>
+          <ul>
+            <li>Bunk beds</li>
+            <li>Outlet at every bed</li>
+            <li>Reading light at every bed</li>
+          </ul>
+        </div>
+      </div>
+      <div class="room-card">
+        <div class="photo-ph">[Photo placeholder] Private room with 2 single beds</div>
+        <div class="room-card-body">
+          <h3>Private Room</h3>
+          <div class="price">¥5,500<span> / person / night</span></div>
+          <div class="note">Fixed ¥11,000 for 2 guests (no weekend surcharge)／up to 2 guests</div>
+          <ul>
+            <li>2 single beds</li>
+            <li>Air conditioning</li>
+            <li>Outlet at every bed</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="room-rules">
+      <ul>
+        <li>Children aged 5 and under stay free when sharing a bed with a parent.</li>
+        <li>A 100% cancellation fee applies from 1 day prior to check-in (natural disasters etc. negotiable case by case).</li>
+        <li>Check-in 16:00–23:00　／　Check-out by 11:00</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="concept" id="amenities">
+  <div class="wrap">
+    <div class="section-title">
+      <span class="eyebrow">Amenities</span>
+      <h2>Facilities &amp; Amenities</h2>
+    </div>
+    <div class="amenity-grid">
+      <div class="amenity-item"><span class="icon">📶</span><div class="label">Wi-Fi</div><div class="desc">Available throughout</div></div>
+      <div class="amenity-item"><span class="icon">🍳</span><div class="label">Kitchen</div><div class="desc">Shared kitchen</div></div>
+      <div class="amenity-item"><span class="icon">🚿</span><div class="label">Shower / Toilet</div><div class="desc">2 showers, 2 toilets</div></div>
+      <div class="amenity-item"><span class="icon">🧺</span><div class="label">Washing Machine</div><div class="desc">¥100/use (no dryer)</div></div>
+      <div class="amenity-item"><span class="icon">🧴</span><div class="label">Shampoo &amp; Soap</div><div class="desc">Provided</div></div>
+      <div class="amenity-item"><span class="icon">🛏️</span><div class="label">Towel Rental</div><div class="desc">¥500</div></div>
+      <div class="amenity-item"><span class="icon">🪥</span><div class="label">Toothbrush</div><div class="desc">¥100</div></div>
+      <div class="amenity-item"><span class="icon">🚗</span><div class="label">Parking</div><div class="desc">1 min walk, approx. ¥500/stay</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="area">
+  <div class="wrap">
+    <div class="section-title">
+      <span class="eyebrow">Area Guide</span>
+      <h2>Around the Area</h2>
+      <p>Komagane is the birthplace of "sauce katsudon" — thick pork cutlet topped with a sweet house sauce.</p>
+    </div>
+
+    <div class="area-tabs-title">🍽️ Food</div>
+    <div class="area-grid">
+      <div class="area-card">
+        <div class="photo-ph">[Photo placeholder] Meijitei's sauce katsudon</div>
+        <div class="area-card-body">
+          <h4>Meijitei Komagane Main Store</h4>
+          <p>Famous for its secret sauce. Also serves fillet cutlet rice bowls and sauce katsu curry. Queues even on weekdays.</p>
+          <span class="link-note">Official link coming soon</span>
+        </div>
+      </div>
+      <div class="area-card">
+        <div class="photo-ph">[Photo placeholder] Tonkatsu Kiraku interior</div>
+        <div class="area-card-body">
+          <h4>Tonkatsu Kiraku</h4>
+          <p>Run by the third generation, considered one of the originators of sauce katsudon.</p>
+          <span class="link-note">Official link coming soon</span>
+        </div>
+      </div>
+      <div class="area-card">
+        <div class="photo-ph">[Photo placeholder] A glass of local craft beer</div>
+        <div class="area-card-body">
+          <h4>Minami Shinshu Beer Ajiwai Kobo</h4>
+          <p>Craft beer brewed with clear water from the Central Alps, plus original dishes like Shinshu miso pizza.</p>
+          <span class="link-note">Official link coming soon</span>
+        </div>
+      </div>
+    </div>
+    <p style="margin-top:14px; font-size:0.82rem; color:#6b6452;">Also try: horse sashimi (a local specialty of the Ina Valley), and coarsely-ground soba noodles (found at notable shops in the Komagane Highland area).</p>
+
+    <div class="area-tabs-title">🏔️ Sightseeing</div>
+    <div class="area-grid">
+      <div class="area-card">
+        <div class="photo-ph">[Photo placeholder] Senjojiki Cirque view</div>
+        <div class="area-card-body">
+          <h4>Senjojiki Cirque</h4>
+          <p>A bowl-shaped landform carved by glaciers around 20,000 years ago. Breathtaking views from the 2,612m Senjojiki Station; a roughly 45-minute loop trail. The scenery changes with every season.</p>
+          <span class="link-note">Official link coming soon</span>
+        </div>
+      </div>
+      <div class="area-card">
+        <div class="photo-ph">[Photo placeholder] Kozenji Temple grounds</div>
+        <div class="area-card-body">
+          <h4>Kozenji Temple</h4>
+          <p>An old temple linked to the legend of the "loyal dog Hayataro." The weeping cherry blossom light-up in April is especially famous.</p>
+          <span class="link-note">Official link coming soon</span>
+        </div>
+      </div>
+      <div class="area-card">
+        <div class="photo-ph">[Photo placeholder] Hayataro Onsen hot spring</div>
+        <div class="area-card-body">
+          <h4>Hayataro Onsen</h4>
+          <p>A hot spring area with 3 day-use baths and 9 lodging facilities. A clear, alkaline simple hot spring known as a "beauty bath."</p>
+          <span class="link-note">Official link coming soon</span>
+        </div>
+      </div>
+      <div class="area-card">
+        <div class="photo-ph">[Photo placeholder] Komagane station-front shopping street</div>
+        <div class="area-card-body">
+          <h4>Komagane Highland &amp; Station-front Shopping Street</h4>
+          <p>A nostalgic shopping street where you can chat with locals or take retro-style photos. Komagane is also a rare town producing beer, wine, whisky and sake all at once.</p>
+          <span class="link-note">Official link coming soon</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="access" id="access">
+  <div class="wrap">
+    <div class="section-title">
+      <span class="eyebrow">Access</span>
+      <h2>How to Get Here</h2>
+    </div>
+    <div class="access-grid">
+      <div class="access-info">
+        <div class="photo-ph" style="background:rgba(255,255,255,0.08); color:rgba(255,255,255,0.7); border-color:rgba(255,255,255,0.2);">
+          [Photo placeholder] Map showing the walk from the station/bus terminal to the guesthouse
+        </div>
+        <dl>
+          <dt>Address</dt>
+          <dd>5-16328-5 Kitamachi, Komagane City, Nagano</dd>
+          <dt>Nearest station / bus terminal</dt>
+          <dd>3-minute walk from JR Komagane Station / Komagane Bus Terminal</dd>
+          <dt>Parking</dt>
+          <dd>Available (1 min walk from the guesthouse, approx. ¥500/stay)</dd>
+        </dl>
+      </div>
+      <div>
+        <p style="font-size:0.85rem; opacity:0.85; margin-bottom:6px;">Direct highway buses to Komagane Bus Terminal</p>
+        <table class="bus-table">
+          <thead>
+            <tr><th>From</th><th>Bus Stop</th><th>Duration</th><th>Approx. Fare</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Tokyo / Shinjuku</td><td>Busta Shinjuku</td><td>approx. 3.5–4 hrs</td><td>approx. ¥3,500+</td></tr>
+            <tr><td>Nagoya</td><td>Meitetsu Bus Center 3F</td><td>approx. 2.5–3 hrs</td><td>approx. ¥3,600</td></tr>
+            <tr><td>Osaka</td><td>Hankyu Sanbangai / Shin-Osaka</td><td>approx. 6 hrs</td><td>TBC</td></tr>
+            <tr><td>Kyoto</td><td>Kyoto Fukakusa Bus Stop</td><td>approx. 4.5 hrs</td><td>TBC</td></tr>
+          </tbody>
+        </table>
+        <p style="font-size:0.7rem; opacity:0.6; margin-top:8px;">* Fares and schedules may change. Please check the latest information before booking.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="wrap">
+    <div class="section-title">
+      <span class="eyebrow">FAQ</span>
+      <h2>Frequently Asked Questions</h2>
+    </div>
+    <div class="faq-list">
+      <details open>
+        <summary>Is parking available?</summary>
+        <p>Yes. It's about a 1-minute walk from the guesthouse, and costs approximately ¥500 per stay.</p>
+      </details>
+      <details>
+        <summary>Do you have a female-only dormitory?</summary>
+        <p>Yes, we have a female-only dormitory with 4 beds.</p>
+      </details>
+      <details>
+        <summary>Can you store luggage before check-in or after check-out?</summary>
+        <p>Yes, this is possible. Please contact us in advance to arrange the timing.</p>
+      </details>
+      <details>
+        <summary>What is the rate for children?</summary>
+        <p>Children aged 5 and under stay free when sharing a bed with a parent.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section class="reserve" id="reserve">
+  <div class="wrap">
+    <div class="reserve-box">
+      <p class="lead">Check Availability</p>
+      <p class="small">Currently bookable via Booking.com, Airbnb, or by contacting us directly.</p>
+      <div class="reserve-btns">
+        <a href="#" class="btn btn-primary">View on Booking.com</a>
+        <a href="#" class="btn-outline">View on Airbnb (Private Room)</a>
+        <a href="mailto:nomar16328.5@gmail.com" class="btn-outline">Contact Us Directly</a>
+      </div>
+      <p class="reserve-note">* These buttons currently link to placeholders. The booking system (Google Apps Script integration) is planned for a later phase. We hope to shift more bookings to our official LINE and this website over time.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-logo">
+          <img src="assets/logo.jpeg" alt="guesthouse のまー logo">
+          <span>guesthouse のまー</span>
+        </div>
+        <p>5-16328-5 Kitamachi, Komagane City, Nagano, Japan</p>
+        <p>Phone: +81 80-8083-7355</p>
+        <p>Email: nomar16328.5@gmail.com</p>
+      </div>
+      <div>
+        <h5>LINKS</h5>
+        <ul>
+          <li><a href="#concept">About</a></li>
+          <li><a href="#rooms">Rooms &amp; Price</a></li>
+          <li><a href="#area">Area Guide</a></li>
+          <li><a href="#access">Access</a></li>
+          <li><a href="#faq">FAQ</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>SNS</h5>
+        <ul>
+          <li><a href="https://instagram.com/nomar042026" target="_blank" rel="noopener">Instagram @nomar042026</a></li>
+          <li>Official LINE: Coming soon</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      &copy; 2026 guesthouse のまー (nomar-guesthouse.com)
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

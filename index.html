@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>guesthouse のまー｜長野県駒ヶ根市の安宿</title>
+<meta name="description" content="長野県駒ヶ根市、駅・バスターミナルから徒歩3分。山と街の交差点にある安宿「のまー」。ドミトリー1泊3,500円〜。">
+<style>
+  :root {
+    --moss: #5c6f47;
+    --moss-dark: #3f4d30;
+    --terracotta: #c06a4d;
+    --sand: #f3ecdd;
+    --sand-light: #faf9f5;
+    --ink: #2e2a22;
+    --line: #e3dcc8;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: "Hiragino Sans", "Yu Gothic", "Noto Sans JP", sans-serif;
+    color: var(--ink);
+    background: var(--sand-light);
+    line-height: 1.8;
+  }
+  img { max-width: 100%; display: block; }
+  a { color: inherit; }
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 0 20px; }
+
+  /* Header */
+  header {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(250,249,245,0.95);
+    border-bottom: 1px solid var(--line);
+    backdrop-filter: blur(4px);
+  }
+  header .wrap {
+    display: flex; align-items: center; justify-content: space-between;
+    height: 64px;
+  }
+  .logo { display: flex; align-items: center; gap: 10px; font-weight: bold; font-size: 1.1rem; }
+  .logo img { width: 36px; height: 36px; border-radius: 8px; object-fit: cover; }
+  nav { display: none; gap: 24px; font-size: 0.9rem; }
+  nav a { text-decoration: none; }
+  .header-right { display: flex; align-items: center; gap: 8px; }
+  .header-cta {
+    background: var(--moss); color: #fff; padding: 8px 16px;
+    border-radius: 20px; font-size: 0.85rem; text-decoration: none;
+    white-space: nowrap;
+  }
+  .lang-switch {
+    background: transparent; color: var(--moss); border: 1px solid var(--moss);
+    padding: 7px 14px; border-radius: 20px; font-size: 0.85rem; text-decoration: none;
+  }
+  @media (min-width: 768px) {
+    nav { display: flex; }
+  }
+
+  /* Hero */
+  .hero {
+    position: relative;
+    background: linear-gradient(180deg, var(--moss-dark) 0%, var(--moss) 60%, var(--sand) 100%);
+    color: #fff;
+    padding: 64px 20px 100px;
+    text-align: center;
+    overflow: hidden;
+  }
+  .hero-mountains {
+    position: absolute; bottom: 0; left: 0; width: 100%; line-height: 0;
+  }
+  .hero-mountains svg { width: 100%; display: block; }
+  .hero-content { position: relative; z-index: 2; max-width: 640px; margin: 0 auto; }
+  .hero-eyebrow {
+    font-size: 0.8rem; letter-spacing: 0.15em; text-transform: uppercase;
+    opacity: 0.85; margin-bottom: 16px;
+  }
+  .hero h1 {
+    font-size: 2.2rem; font-weight: 800; margin-bottom: 12px;
+    line-height: 1.4;
+  }
+  .hero p.sub {
+    font-size: 1.05rem; opacity: 0.95; margin-bottom: 32px;
+  }
+  .hero-photo-note {
+    margin: 0 auto 28px; max-width: 480px;
+    border: 1.5px dashed rgba(255,255,255,0.5);
+    border-radius: 12px; padding: 14px 16px;
+    font-size: 0.78rem; opacity: 0.8; line-height: 1.6;
+  }
+  .cta-group { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+  .btn {
+    display: inline-block; padding: 14px 28px; border-radius: 28px;
+    font-weight: bold; text-decoration: none; font-size: 0.95rem;
+    transition: transform 0.15s ease;
+  }
+  .btn:hover { transform: translateY(-2px); }
+  .btn-primary { background: var(--terracotta); color: #fff; }
+  .btn-secondary { background: rgba(255,255,255,0.15); color: #fff; border: 1px solid rgba(255,255,255,0.6); }
+
+  @media (min-width: 768px) {
+    .hero { padding: 90px 20px 140px; }
+    .hero h1 { font-size: 3rem; }
+    .hero p.sub { font-size: 1.2rem; }
+  }
+
+  /* Poster-style banner (top of page) */
+  .top-banner {
+    position: relative;
+    aspect-ratio: 4/3;
+    background:
+      linear-gradient(180deg, rgba(20,30,15,0.05) 0%, rgba(20,30,15,0.35) 100%),
+      repeating-linear-gradient(115deg, #6b7d4a, #6b7d4a 18px, #5c6f47 18px, #5c6f47 36px),
+      linear-gradient(180deg, #87a368 0%, #5c6f47 45%, #3f4d30 100%);
+    overflow: hidden;
+    color: #fff;
+  }
+  @media (min-width: 700px) {
+    .top-banner { aspect-ratio: 16/7; }
+  }
+  .top-banner .photo-note {
+    position: absolute; top: 10px; left: 10px; right: 10px;
+    font-size: 0.65rem; opacity: 0.6; text-align: center;
+    border: 1px dashed rgba(255,255,255,0.4); border-radius: 8px;
+    padding: 4px 8px; z-index: 5;
+  }
+  .banner-tagline {
+    position: absolute; top: 14%; right: 5%; z-index: 4;
+    background: rgba(255,255,255,0.92); color: var(--ink);
+    padding: 8px 16px; border-radius: 20px;
+    font-size: 0.72rem; font-weight: bold; letter-spacing: 0.02em;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  }
+  .banner-headline {
+    position: absolute; left: 4%; top: 50%; transform: translateY(-50%);
+    z-index: 4;
+    writing-mode: vertical-rl;
+    font-size: 2.2rem; font-weight: 900; line-height: 1.15;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.35);
+    letter-spacing: 0.02em;
+  }
+  .banner-headline .accent { color: var(--terracotta); }
+  .banner-logo-wrap {
+    position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);
+    z-index: 4; text-align: center;
+  }
+  .banner-logo-wrap img {
+    width: 140px; height: auto; margin: 0 auto;
+    filter: drop-shadow(0 4px 10px rgba(0,0,0,0.25));
+  }
+  @media (min-width: 700px) {
+    .banner-headline { font-size: 3.4rem; left: 6%; }
+    .banner-logo-wrap img { width: 220px; }
+    .banner-tagline { font-size: 0.85rem; padding: 10px 22px; }
+  }
+  .hero-below {
+    background: var(--moss-dark); color: #fff;
+    padding: 36px 20px 90px; text-align: center; position: relative; overflow: hidden;
+  }
+  .hero-below .hero-content { max-width: 640px; margin: 0 auto; position: relative; z-index: 2; }
+  .hero-below .sub { font-size: 1.05rem; opacity: 0.95; margin-bottom: 28px; }
+  @media (min-width: 768px) {
+    .hero-below { padding: 48px 20px 120px; }
+    .hero-below .sub { font-size: 1.2rem; }
+  }
+
+  /* Section generic */
+  section { padding: 64px 20px; }
+  .section-title {
+    text-align: center; margin-bottom: 36px;
+  }
+  .section-title .eyebrow {
+    display: block; font-size: 0.78rem; letter-spacing: 0.12em;
+    color: var(--moss); text-transform: uppercase; margin-bottom: 8px;
+    font-weight: bold;
+  }
+  .section-title h2 {
+    font-size: 1.6rem; font-weight: 800;
+  }
+  .section-title p {
+    margin-top: 10px; font-size: 0.92rem; color: #6b6452;
+  }
+  @media (min-width: 768px) {
+    section { padding: 96px 20px; }
+    .section-title h2 { font-size: 2.1rem; }
+  }
+
+  /* Photo placeholder */
+  .photo-ph {
+    background: repeating-linear-gradient(45deg, #ece4cf, #ece4cf 10px, #e4dcc4 10px, #e4dcc4 20px);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+    color: #8c8468; font-size: 0.78rem; text-align: center;
+    padding: 16px; line-height: 1.6;
+    aspect-ratio: 4/3;
+  }
+
+  /* Concept */
+  .concept {
+    background: var(--sand);
+  }
+  .concept-grid {
+    display: grid; gap: 28px; align-items: center;
+  }
+  .concept-text p { margin-bottom: 14px; font-size: 0.98rem; }
+  .concept-text .lead {
+    font-size: 1.15rem; font-weight: bold; color: var(--moss-dark);
+    margin-bottom: 18px;
+  }
+  @media (min-width: 768px) {
+    .concept-grid { grid-template-columns: 1fr 1fr; gap: 48px; }
+  }
+
+  /* Rooms */
+  .room-cards {
+    display: grid; gap: 20px; grid-template-columns: 1fr;
+  }
+  @media (min-width: 768px) {
+    .room-cards { grid-template-columns: repeat(3, 1fr); }
+  }
+  .room-card {
+    background: #fff; border: 1px solid var(--line); border-radius: 16px;
+    overflow: hidden; display: flex; flex-direction: column;
+  }
+  .room-card .photo-ph { aspect-ratio: 16/10; border-radius: 0; border: none; border-bottom: 1px solid var(--line); }
+  .room-card-body { padding: 20px; flex: 1; display: flex; flex-direction: column; }
+  .room-card h3 { font-size: 1.05rem; margin-bottom: 4px; }
+  .room-card .price {
+    font-size: 1.6rem; font-weight: 800; color: var(--terracotta); margin: 8px 0 4px;
+  }
+  .room-card .price span { font-size: 0.85rem; font-weight: normal; color: var(--ink); }
+  .room-card .note { font-size: 0.78rem; color: #6b6452; margin-bottom: 12px; }
+  .room-card ul { list-style: none; font-size: 0.85rem; margin-top: auto; }
+  .room-card ul li { padding: 4px 0; border-top: 1px dashed var(--line); }
+  .room-card ul li:first-child { border-top: none; }
+  .room-rules {
+    margin-top: 28px; background: #fff; border: 1px solid var(--line);
+    border-radius: 12px; padding: 18px 20px; font-size: 0.85rem;
+  }
+  .room-rules ul { padding-left: 1.1em; }
+  .room-rules li { margin-bottom: 4px; }
+
+  /* Amenities */
+  .amenity-grid {
+    display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px;
+  }
+  @media (min-width: 768px) {
+    .amenity-grid { grid-template-columns: repeat(4, 1fr); }
+  }
+  .amenity-item {
+    background: #fff; border: 1px solid var(--line); border-radius: 12px;
+    padding: 18px 14px; text-align: center; font-size: 0.85rem;
+  }
+  .amenity-item .icon { font-size: 1.6rem; margin-bottom: 8px; display: block; }
+  .amenity-item .label { font-weight: bold; margin-bottom: 4px; }
+  .amenity-item .desc { font-size: 0.75rem; color: #6b6452; }
+
+  /* Area guide */
+  .area-tabs-title { font-weight: bold; color: var(--moss-dark); margin: 28px 0 14px; font-size: 1.05rem; }
+  .area-grid {
+    display: grid; gap: 18px; grid-template-columns: 1fr;
+  }
+  @media (min-width: 600px) {
+    .area-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (min-width: 980px) {
+    .area-grid { grid-template-columns: repeat(3, 1fr); }
+  }
+  .area-card {
+    background: #fff; border: 1px solid var(--line); border-radius: 14px; overflow: hidden;
+  }
+  .area-card .photo-ph { aspect-ratio: 16/10; border-radius: 0; border: none; border-bottom: 1px solid var(--line); }
+  .area-card-body { padding: 16px; }
+  .area-card h4 { font-size: 0.95rem; margin-bottom: 6px; }
+  .area-card p { font-size: 0.82rem; color: #56503f; }
+  .area-card .link-note {
+    display: inline-block; margin-top: 10px; font-size: 0.75rem;
+    color: var(--moss); border-bottom: 1px dashed var(--moss);
+  }
+
+  /* Access */
+  .access {
+    background: var(--moss-dark); color: #fff;
+  }
+  .access .section-title h2, .access .section-title p { color: #fff; }
+  .access-grid { display: grid; gap: 28px; }
+  @media (min-width: 768px) {
+    .access-grid { grid-template-columns: 1fr 1fr; }
+  }
+  .access-info dl { font-size: 0.9rem; }
+  .access-info dt { font-weight: bold; opacity: 0.8; margin-top: 14px; font-size: 0.78rem; letter-spacing: 0.05em; }
+  .access-info dd { margin-top: 2px; }
+  table.bus-table {
+    width: 100%; border-collapse: collapse; font-size: 0.85rem; margin-top: 10px;
+    background: rgba(255,255,255,0.06); border-radius: 10px; overflow: hidden;
+  }
+  table.bus-table th, table.bus-table td {
+    padding: 10px 12px; text-align: left; border-bottom: 1px solid rgba(255,255,255,0.15);
+  }
+  table.bus-table th { font-size: 0.78rem; opacity: 0.8; }
+
+  /* FAQ */
+  .faq-list { max-width: 720px; margin: 0 auto; }
+  details {
+    background: #fff; border: 1px solid var(--line); border-radius: 12px;
+    margin-bottom: 12px; padding: 16px 18px;
+  }
+  summary {
+    cursor: pointer; font-weight: bold; font-size: 0.95rem;
+    list-style: none; position: relative; padding-right: 24px;
+  }
+  summary::-webkit-details-marker { display: none; }
+  summary::after {
+    content: "+"; position: absolute; right: 0; top: 0;
+    font-size: 1.2rem; color: var(--moss);
+  }
+  details[open] summary::after { content: "−"; }
+  details p { margin-top: 10px; font-size: 0.88rem; color: #4a4636; }
+
+  /* Reservation CTA */
+  .reserve {
+    background: var(--sand); text-align: center;
+  }
+  .reserve-box {
+    max-width: 560px; margin: 0 auto; background: #fff;
+    border: 1px solid var(--line); border-radius: 20px; padding: 36px 28px;
+  }
+  .reserve-box p.lead { font-weight: bold; font-size: 1.1rem; margin-bottom: 6px; }
+  .reserve-box p.small { font-size: 0.8rem; color: #6b6452; margin-bottom: 24px; }
+  .reserve-btns { display: flex; flex-direction: column; gap: 10px; }
+  @media (min-width: 480px) {
+    .reserve-btns { flex-direction: row; justify-content: center; }
+  }
+  .btn-outline {
+    border: 1.5px solid var(--moss); color: var(--moss); background: transparent;
+    padding: 13px 24px; border-radius: 24px; font-weight: bold; text-decoration: none; font-size: 0.9rem;
+  }
+  .reserve-note {
+    margin-top: 18px; font-size: 0.72rem; color: #9a9379;
+  }
+
+  /* Footer */
+  footer {
+    background: var(--moss-dark); color: rgba(255,255,255,0.85);
+    padding: 48px 20px 28px; font-size: 0.85rem;
+  }
+  .footer-grid {
+    display: grid; gap: 28px; margin-bottom: 28px;
+  }
+  @media (min-width: 768px) {
+    .footer-grid { grid-template-columns: 1.2fr 1fr 1fr; }
+  }
+  .footer-logo { display: flex; align-items: center; gap: 10px; font-weight: bold; color: #fff; margin-bottom: 10px; }
+  .footer-logo img { width: 32px; height: 32px; border-radius: 8px; }
+  footer h5 { color: #fff; font-size: 0.78rem; letter-spacing: 0.08em; margin-bottom: 10px; opacity: 0.7; }
+  footer ul { list-style: none; }
+  footer li { margin-bottom: 6px; }
+  .footer-bottom {
+    text-align: center; font-size: 0.72rem; opacity: 0.5;
+    border-top: 1px solid rgba(255,255,255,0.15); padding-top: 18px;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <div class="logo">
+      <img src="assets/logo.jpeg" alt="guesthouse のまー ロゴ">
+      <span>guesthouse のまー</span>
+    </div>
+    <nav>
+      <a href="#concept">宿について</a>
+      <a href="#rooms">部屋・料金</a>
+      <a href="#area">周辺ガイド</a>
+      <a href="#access">アクセス</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <div class="header-right">
+      <a href="en.html" class="lang-switch">EN</a>
+      <a href="#reserve" class="header-cta">空室・料金を見る</a>
+    </div>
+  </div>
+</header>
+
+<section class="top-banner">
+  <div class="photo-note">【写真プレースホルダ】中央アルプスの山並みを背景に（ポスターと同じ構図イメージ）</div>
+  <div class="banner-tagline">旅の途中にひとやすみ</div>
+  <div class="banner-headline">山<span class="accent">と</span>街<span class="accent">の</span>交差点</div>
+  <div class="banner-logo-wrap">
+    <img src="assets/logo.jpeg" alt="guesthouse のまー ロゴ">
+  </div>
+</section>
+
+<section class="hero-below">
+  <div class="hero-content">
+    <p class="sub">guesthouse のまー / nomar</p>
+    <div class="cta-group">
+      <a href="#reserve" class="btn btn-primary">空室・料金を見る</a>
+      <a href="#concept" class="btn btn-secondary">宿について知る</a>
+    </div>
+  </div>
+  <div class="hero-mountains">
+    <svg viewBox="0 0 1440 160" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0,160 L0,90 L180,30 L260,70 L340,40 L460,100 L600,20 L760,90 L900,50 L1040,110 L1180,40 L1320,80 L1440,50 L1440,160 Z" fill="#f3ecdd"/>
+    </svg>
+  </div>
+</section>
+
+<section class="concept" id="concept">
+  <div class="wrap">
+    <div class="section-title">
+      <span class="eyebrow">Concept</span>
+      <h2>安宿。山に行く人のための「宿版LCC」</h2>
+    </div>
+    <div class="concept-grid">
+      <div class="concept-text">
+        <p class="lead">駒ヶ根に、安宿を作りました。</p>
+        <p>山に行く人も、ただ立ち寄る人も。「ここに泊まる」という選択肢を、ひとつ増やしたくて。地元・駒ヶ根には、これまで安宿がありませんでした。</p>
+        <p>宿のすぐそばには商店街。ご飯屋さんをのぞきながら、旅の途中をゆっくり過ごしてください。</p>
+        <p>駒ヶ根バスターミナルへは新宿・名古屋・大阪・京都から高速バスの直通あり、宿まで駅・バスターミナルから徒歩3分というアクセスの良さも、私たちの自慢です。</p>
+      </div>
+      <div class="photo-ph">
+        【写真プレースホルダ】宿の外観・看板・入口、または共用スペースのスナップ
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="rooms">
+  <div class="wrap">
+    <div class="section-title">
+      <span class="eyebrow">Rooms &amp; Price</span>
+      <h2>部屋・料金</h2>
+      <p>価格はすべて税込です。時期によって料金が変わる場合があります。</p>
+    </div>
+    <div class="room-cards">
+      <div class="room-card">
+        <div class="photo-ph">【写真プレースホルダ】男女混合ドミトリーの2段ベッド全体</div>
+        <div class="room-card-body">
+          <h3>ドミトリー（男女混合）</h3>
+          <div class="price">¥3,500<span> / 人・1泊</span></div>
+          <div class="note">週末 +500円　／　定員6ベッド</div>
+          <ul>
+            <li>2段ベッド</li>
+            <li>ベッドごとにコンセント</li>
+            <li>各ベッドに枕元ランプ</li>
+          </ul>
+        </div>
+      </div>
+      <div class="room-card">
+        <div class="photo-ph">【写真プレースホルダ】女性専用ドミトリーの様子</div>
+        <div class="room-card-body">
+          <h3>ドミトリー（女性専用）</h3>
+          <div class="price">¥3,500<span> / 人・1泊</span></div>
+          <div class="note">週末 +500円　／　定員4ベッド</div>
+          <ul>
+            <li>2段ベッド</li>
+            <li>ベッドごとにコンセント</li>
+            <li>各ベッドに枕元ランプ</li>
+          </ul>
+        </div>
+      </div>
+      <div class="room-card">
+        <div class="photo-ph">【写真プレースホルダ】個室のシングルベッド2台</div>
+        <div class="room-card-body">
+          <h3>個室</h3>
+          <div class="price">¥5,500<span> / 人・1泊</span></div>
+          <div class="note">2名利用は¥11,000固定（週末料金なし）／定員2名</div>
+          <ul>
+            <li>シングルベッド2台</li>
+            <li>エアコンあり</li>
+            <li>各ベッドにコンセント</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="room-rules">
+      <ul>
+        <li>5歳以下の子供は、保護者と添い寝（同ベッド使用）の場合は無料です。</li>
+        <li>キャンセル料は宿泊日の1日前より全額発生します（自然災害等は別途相談）。</li>
+        <li>チェックイン 16:00〜23:00　／　チェックアウト 〜11:00</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="concept" id="amenities">
+  <div class="wrap">
+    <div class="section-title">
+      <span class="eyebrow">Amenities</span>
+      <h2>設備・アメニティ</h2>
+    </div>
+    <div class="amenity-grid">
+      <div class="amenity-item"><span class="icon">📶</span><div class="label">Wi-Fi</div><div class="desc">全館利用可</div></div>
+      <div class="amenity-item"><span class="icon">🍳</span><div class="label">キッチン</div><div class="desc">共用キッチンあり</div></div>
+      <div class="amenity-item"><span class="icon">🚿</span><div class="label">シャワー・トイレ</div><div class="desc">シャワー2つ・トイレ2つ</div></div>
+      <div class="amenity-item"><span class="icon">🧺</span><div class="label">洗濯機</div><div class="desc">100円/回（乾燥機なし）</div></div>
+      <div class="amenity-item"><span class="icon">🧴</span><div class="label">シャンプー・ソープ</div><div class="desc">共用アメニティあり</div></div>
+      <div class="amenity-item"><span class="icon">🛏️</span><div class="label">タオルレンタル</div><div class="desc">500円</div></div>
+      <div class="amenity-item"><span class="icon">🪥</span><div class="label">歯ブラシ</div><div class="desc">100円</div></div>
+      <div class="amenity-item"><span class="icon">🚗</span><div class="label">駐車場</div><div class="desc">徒歩1分・1滞在500円程度</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="area">
+  <div class="wrap">
+    <div class="section-title">
+      <span class="eyebrow">Area Guide</span>
+      <h2>周辺ガイド</h2>
+      <p>駒ヶ根はソースかつ丼発祥の地。甘めの特製ソースがたっぷりかかった厚切りカツが絶品です。</p>
+    </div>
+
+    <div class="area-tabs-title">🍽️ 食事</div>
+    <div class="area-grid">
+      <div class="area-card">
+        <div class="photo-ph">【写真プレースホルダ】明治亭のソースかつ丼</div>
+        <div class="area-card-body">
+          <h4>明治亭 駒ヶ根本店</h4>
+          <p>秘伝ソースで有名。ヒレカツ丼やソースカツカレーも。平日でも行列ができるほどの人気店。</p>
+          <span class="link-note">公式サイトのリンクは準備中</span>
+        </div>
+      </div>
+      <div class="area-card">
+        <div class="photo-ph">【写真プレースホルダ】とんかつ きらく 店内</div>
+        <div class="area-card-body">
+          <h4>とんかつ きらく</h4>
+          <p>3代続くソースかつ丼の元祖的存在。</p>
+          <span class="link-note">公式サイトのリンクは準備中</span>
+        </div>
+      </div>
+      <div class="area-card">
+        <div class="photo-ph">【写真プレースホルダ】地ビールのグラス</div>
+        <div class="area-card-body">
+          <h4>南信州ビール 味わい工房</h4>
+          <p>中央アルプスの清水で醸造した地ビールと、信州みそピザなどオリジナル料理が楽しめる。</p>
+          <span class="link-note">公式サイトのリンクは準備中</span>
+        </div>
+      </div>
+    </div>
+    <p style="margin-top:14px; font-size:0.82rem; color:#6b6452;">その他グルメ：馬刺し（伊那谷の郷土料理）、粗挽き蕎麦（駒ヶ根高原エリアに名店あり）</p>
+
+    <div class="area-tabs-title">🏔️ 観光</div>
+    <div class="area-grid">
+      <div class="area-card">
+        <div class="photo-ph">【写真プレースホルダ】千畳敷カールの絶景</div>
+        <div class="area-card-body">
+          <h4>千畳敷カール</h4>
+          <p>約2万年前の氷河期に形成されたお椀型の地形。標高2,612mからの絶景。遊歩道は1周約45分。四季で表情が変わる。</p>
+          <span class="link-note">公式サイトのリンクは準備中</span>
+        </div>
+      </div>
+      <div class="area-card">
+        <div class="photo-ph">【写真プレースホルダ】光前寺の境内</div>
+        <div class="area-card-body">
+          <h4>光前寺</h4>
+          <p>「霊犬・早太郎伝説」が伝わる古刹。しだれ桜のライトアップ（4月）が特に有名。</p>
+          <span class="link-note">公式サイトのリンクは準備中</span>
+        </div>
+      </div>
+      <div class="area-card">
+        <div class="photo-ph">【写真プレースホルダ】早太郎温泉の湯</div>
+        <div class="area-card-body">
+          <h4>早太郎温泉</h4>
+          <p>3つの日帰り温泉・9つの宿泊施設が点在。アルカリ性単純温泉で「美肌の湯」として知られる。</p>
+          <span class="link-note">公式サイトのリンクは準備中</span>
+        </div>
+      </div>
+      <div class="area-card">
+        <div class="photo-ph">【写真プレースホルダ】駅前商店街の風景</div>
+        <div class="area-card-body">
+          <h4>駒ヶ根駅前商店街</h4>
+          <p>どこか懐かしい雰囲気の商店街。地元の人との会話や昭和レトロ撮影も楽しめる。ビール・ワイン・ウイスキー・日本酒、多様なお酒が作られる珍しい街。</p>
+          <span class="link-note">公式サイトのリンクは準備中</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="access" id="access">
+  <div class="wrap">
+    <div class="section-title">
+      <span class="eyebrow">Access</span>
+      <h2>アクセス</h2>
+    </div>
+    <div class="access-grid">
+      <div class="access-info">
+        <div class="photo-ph" style="background:rgba(255,255,255,0.08); color:rgba(255,255,255,0.7); border-color:rgba(255,255,255,0.2);">
+          【写真プレースホルダ】駅・バスターミナルから宿までの道のり地図
+        </div>
+        <dl>
+          <dt>所在地</dt>
+          <dd>長野県駒ヶ根市北町5-16328-5</dd>
+          <dt>最寄り駅・バスターミナル</dt>
+          <dd>JR駒ヶ根駅・駒ヶ根バスターミナルから徒歩3分</dd>
+          <dt>駐車場</dt>
+          <dd>あり（宿から徒歩1分ほど、1滞在500円程度）</dd>
+        </dl>
+      </div>
+      <div>
+        <p style="font-size:0.85rem; opacity:0.85; margin-bottom:6px;">高速バスで駒ヶ根バスターミナルまで直通あり</p>
+        <table class="bus-table">
+          <thead>
+            <tr><th>出発地</th><th>乗り場</th><th>所要時間</th><th>目安運賃</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>東京・新宿</td><td>バスタ新宿</td><td>約3.5〜4時間</td><td>約3,500円〜</td></tr>
+            <tr><td>名古屋</td><td>名鉄バスセンター3F</td><td>約2.5〜3時間</td><td>約3,600円</td></tr>
+            <tr><td>大阪</td><td>阪急三番街・新大阪</td><td>約6時間</td><td>要確認</td></tr>
+            <tr><td>京都</td><td>京都深草バス停</td><td>約4.5時間</td><td>要確認</td></tr>
+          </tbody>
+        </table>
+        <p style="font-size:0.7rem; opacity:0.6; margin-top:8px;">※ 運賃・時刻は変動するため、ご予約前に最新情報をご確認ください。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="wrap">
+    <div class="section-title">
+      <span class="eyebrow">FAQ</span>
+      <h2>よくある質問</h2>
+    </div>
+    <div class="faq-list">
+      <details open>
+        <summary>駐車場はありますか？</summary>
+        <p>あります。宿から徒歩1分ほどの場所で、1滞在500円程度です。</p>
+      </details>
+      <details>
+        <summary>女性専用のドミトリーはありますか？</summary>
+        <p>あります。女性専用ドミトリー（4ベッド）をご用意しています。</p>
+      </details>
+      <details>
+        <summary>チェックイン前・チェックアウト後の荷物預かりはできますか？</summary>
+        <p>対応可能です。時間については、事前にご相談ください。</p>
+      </details>
+      <details>
+        <summary>子供の料金はどうなりますか？</summary>
+        <p>5歳以下のお子様で、保護者と同じベッドを使用する場合は無料です。</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section class="reserve" id="reserve">
+  <div class="wrap">
+    <div class="reserve-box">
+      <p class="lead">空室・料金を見る</p>
+      <p class="small">現在は Booking.com・Airbnb・直接のお問い合わせで承っています。</p>
+      <div class="reserve-btns">
+        <a href="#" class="btn btn-primary">Booking.comで見る</a>
+        <a href="#" class="btn-outline">Airbnbで見る（個室）</a>
+        <a href="mailto:nomar16328.5@gmail.com" class="btn-outline">直接問い合わせる</a>
+      </div>
+      <p class="reserve-note">※ このボタンの遷移先は仮設定です。予約システム（GAS連携）は今後整備予定で、将来的には公式LINE・公式サイトからの直接予約を増やしていく予定です。</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-logo">
+          <img src="assets/logo.jpeg" alt="guesthouse のまー ロゴ">
+          <span>guesthouse のまー</span>
+        </div>
+        <p>長野県駒ヶ根市北町5-16328-5</p>
+        <p>電話: 080-8083-7355</p>
+        <p>メール: nomar16328.5@gmail.com</p>
+      </div>
+      <div>
+        <h5>LINKS</h5>
+        <ul>
+          <li><a href="#concept">宿について</a></li>
+          <li><a href="#rooms">部屋・料金</a></li>
+          <li><a href="#area">周辺ガイド</a></li>
+          <li><a href="#access">アクセス</a></li>
+          <li><a href="#faq">FAQ</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>SNS</h5>
+        <ul>
+          <li><a href="https://instagram.com/nomar042026" target="_blank" rel="noopener">Instagram @nomar042026</a></li>
+          <li>公式LINE: 準備中</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      &copy; 2026 guesthouse のまー (nomar-guesthouse.com)
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

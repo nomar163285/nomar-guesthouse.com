@@ -1,0 +1,8 @@
+# ゲストの個人情報を含むため、公開リポジトリには絶対に含めないこと
+70_Guests/
+data/guests.csv
+data/reservations.csv
+
+# 制作時の参考資料・旧デザイン案（公開サイトには不要）
+*.pdf
+のまー 案1 アウトドア.html
