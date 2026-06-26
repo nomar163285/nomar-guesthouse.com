@@ -339,6 +339,45 @@
     margin-top: 18px; font-size: 0.72rem; color: #9a9379;
   }
 
+  /* Contact */
+  .contact-box {
+    max-width: 640px; margin: 32px auto 0; background: #fff;
+    border: 1px solid var(--line); border-radius: 20px; padding: 32px 28px; text-align: left;
+  }
+  .contact-box h3 {
+    font-size: 1rem; color: var(--moss-dark); margin-bottom: 14px;
+  }
+  .contact-notes { margin-bottom: 28px; }
+  .contact-notes p {
+    font-size: 0.82rem; color: #4a4636; margin: 0 0 14px; line-height: 1.7;
+  }
+  .contact-notes p strong { color: var(--moss-dark); }
+  .contact-form label {
+    display: block; font-size: 0.82rem; font-weight: bold; color: var(--moss-dark);
+    margin: 16px 0 6px;
+  }
+  .contact-form label:first-of-type { margin-top: 0; }
+  .contact-form input[type="text"],
+  .contact-form input[type="number"],
+  .contact-form select,
+  .contact-form textarea {
+    width: 100%; padding: 10px 12px; border: 1px solid var(--line); border-radius: 10px;
+    font-size: 0.88rem; font-family: inherit; color: var(--ink); background: #fff;
+  }
+  .contact-form .guest-row {
+    display: grid; grid-template-columns: 1fr 60px; gap: 10px; align-items: center;
+  }
+  .contact-form .guest-row span { font-size: 0.82rem; }
+  .contact-form .guest-grid { display: grid; gap: 10px; }
+  .contact-form button[type="submit"] {
+    width: 100%; margin-top: 24px; background: var(--moss); color: #fff;
+    border: none; padding: 14px; border-radius: 24px; font-weight: bold; font-size: 0.92rem; cursor: pointer;
+  }
+  .contact-form button[type="submit"]:hover { transform: translateY(-2px); }
+  .contact-form-note {
+    margin-top: 14px; font-size: 0.72rem; color: #9a9379;
+  }
+
   /* Footer */
   footer {
     background: var(--moss-dark); color: rgba(255,255,255,0.85);
@@ -667,6 +706,63 @@
         <a href="mailto:nomar16328.5@gmail.com" class="btn-outline">直接問い合わせる</a>
       </div>
       <p class="reserve-note">※ このボタンの遷移先は仮設定です。予約システム（GAS連携）は今後整備予定で、将来的には公式LINE・公式サイトからの直接予約を増やしていく予定です。</p>
+
+      <div class="contact-box">
+        <h3>お問い合わせフォーム</h3>
+        <div class="contact-notes">
+          <p>ご予約・お問い合わせは、以下の内容をご記入のうえお送りください。</p>
+          <p>📌 <strong>ご予約の流れについて</strong><br>
+            お問い合わせ内容を確認後、承認・お断りのご連絡をいたします。<br>
+            承認の際に料金・お支払い方法もあわせてご案内いたします。</p>
+          <p>📌 <strong>ドミトリーについて</strong><br>
+            ドミトリーは男女混合の相部屋となります。<br>
+            ※男女別をご希望の場合はその旨お書き添えください。</p>
+          <p>📌 <strong>アメニティについて</strong><br>
+            タオル・アメニティ類は有料レンタルとなります。<br>
+            承認メール内で料金をご案内いたします。</p>
+          <p>📌 <strong>駐車場について</strong><br>
+            駐車場は500円／1滞在となります（有料）。</p>
+        </div>
+
+        <form class="contact-form" id="contact-form">
+          <label for="c-name">お名前</label>
+          <input type="text" id="c-name" required>
+
+          <label for="c-date">1. 宿泊希望日（例：7月15日）</label>
+          <input type="text" id="c-date" placeholder="例：7月15日" required>
+
+          <label for="c-nights">2. 宿泊数（例：2泊）</label>
+          <input type="text" id="c-nights" placeholder="例：2泊" required>
+
+          <label for="c-roomtype">3. お部屋タイプ</label>
+          <select id="c-roomtype" required>
+            <option value="">選択してください</option>
+            <option value="個室">個室</option>
+            <option value="ドミトリー">ドミトリー</option>
+          </select>
+
+          <label>4. 宿泊人数</label>
+          <div class="guest-grid">
+            <div class="guest-row"><span>大人男性</span><input type="number" id="c-men" min="0" value="0"></div>
+            <div class="guest-row"><span>大人女性</span><input type="number" id="c-women" min="0" value="0"></div>
+            <div class="guest-row"><span>お子様（5歳以下）</span><input type="number" id="c-child-young" min="0" value="0"></div>
+            <div class="guest-row"><span>お子様（6歳以上）</span><input type="number" id="c-child-old" min="0" value="0"></div>
+          </div>
+
+          <label for="c-parking">5. 駐車場の利用</label>
+          <select id="c-parking" required>
+            <option value="">選択してください</option>
+            <option value="あり">あり</option>
+            <option value="なし">なし</option>
+          </select>
+
+          <label for="c-memo">その他ご要望・ご質問</label>
+          <textarea id="c-memo" rows="3"></textarea>
+
+          <button type="submit">この内容で送信する</button>
+        </form>
+        <p class="contact-form-note">※ 送信ボタンを押すと、入力内容を記載したメールがお使いのメールソフトで作成されます。内容をご確認のうえ、そのまま送信してください。</p>
+      </div>
     </div>
   </div>
 </section>
@@ -706,6 +802,35 @@
     </div>
   </div>
 </footer>
+
+<script>
+  document.getElementById('contact-form').addEventListener('submit', function (e) {
+    e.preventDefault();
+    var val = function (id) { return document.getElementById(id).value.trim(); };
+    var name = val('c-name');
+    var lines = [
+      'お名前: ' + name,
+      '',
+      '1. 宿泊希望日: ' + val('c-date'),
+      '2. 宿泊数: ' + val('c-nights'),
+      '3. お部屋タイプ: ' + val('c-roomtype'),
+      '4. 宿泊人数:',
+      '　・大人男性　' + val('c-men') + '名',
+      '　・大人女性　' + val('c-women') + '名',
+      '　・お子様（5歳以下）　' + val('c-child-young') + '名',
+      '　・お子様（6歳以上）　' + val('c-child-old') + '名',
+      '5. 駐車場の利用: ' + val('c-parking'),
+      '',
+      'その他ご要望・ご質問:',
+      val('c-memo')
+    ];
+    var subject = 'guesthouse のまー 予約・お問い合わせ（' + name + '様）';
+    var body = lines.join('\n');
+    window.location.href = 'mailto:nomar16328.5@gmail.com'
+      + '?subject=' + encodeURIComponent(subject)
+      + '&body=' + encodeURIComponent(body);
+  });
+</script>
 
 </body>
 </html>
