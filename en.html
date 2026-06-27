@@ -181,6 +181,14 @@
     font-size: 1.1rem; font-weight: bold; color: var(--moss-dark);
     margin-bottom: 18px;
   }
+  .concept-points {
+    list-style: none; display: grid; gap: 12px; margin-top: 18px;
+  }
+  .concept-points li {
+    background: #fff; border: 1px solid var(--line); border-radius: 12px;
+    padding: 14px 16px; font-size: 0.92rem; display: flex; gap: 10px; align-items: flex-start;
+  }
+  .concept-points .icon { font-size: 1.2rem; line-height: 1.4; }
   @media (min-width: 768px) {
     .concept-grid { grid-template-columns: 1fr 1fr; gap: 48px; }
   }
@@ -375,14 +383,16 @@
   <div class="wrap">
     <div class="section-title">
       <span class="eyebrow">Concept</span>
-      <h2>A budget stay. The "LCC of guesthouses" for hikers.</h2>
+      <h2>An easy, affordable stay. The "LCC of guesthouses" for hikers.</h2>
     </div>
     <div class="concept-grid">
       <div class="concept-text">
         <p class="lead">We built a budget guesthouse in Komagane.</p>
-        <p>For people heading into the mountains, and for those just passing through — we wanted to give travelers one more option for "where to stay." Until now, Komagane didn't have an affordable guesthouse.</p>
-        <p>There's a shopping street right near us. Take your time, stop by the local restaurants, and enjoy the journey.</p>
-        <p>We're proud of our access: direct highway buses from Shinjuku, Nagoya, Osaka and Kyoto to Komagane Bus Terminal, and just a 3-minute walk from the station/terminal to the guesthouse.</p>
+        <p>For hikers heading into the mountains and travelers just passing through — Komagane never had an affordable, easy place to stay. So we made one.</p>
+        <ul class="concept-points">
+          <li><span class="icon">🚏</span><span>Just a 3-minute walk from the station/bus terminal. Direct highway buses from Shinjuku, Nagoya, Osaka and Kyoto.</span></li>
+          <li><span class="icon">🍜</span><span>A shopping street right nearby — explore local restaurants and take your time on the journey.</span></li>
+        </ul>
       </div>
       <div class="photo-ph">
         [Photo placeholder] Exterior / sign / entrance of the guesthouse, or a snapshot of the common space

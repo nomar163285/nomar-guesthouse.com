@@ -208,6 +208,14 @@
     font-size: 1.15rem; font-weight: bold; color: var(--moss-dark);
     margin-bottom: 18px;
   }
+  .concept-points {
+    list-style: none; display: grid; gap: 12px; margin-top: 18px;
+  }
+  .concept-points li {
+    background: #fff; border: 1px solid var(--line); border-radius: 12px;
+    padding: 14px 16px; font-size: 0.92rem; display: flex; gap: 10px; align-items: flex-start;
+  }
+  .concept-points .icon { font-size: 1.2rem; line-height: 1.4; }
   @media (min-width: 768px) {
     .concept-grid { grid-template-columns: 1fr 1fr; gap: 48px; }
   }
@@ -444,14 +452,16 @@
   <div class="wrap">
     <div class="section-title">
       <span class="eyebrow">Concept</span>
-      <h2>安宿。山に行く人のための「宿版LCC」</h2>
+      <h2>気軽に泊まれる宿。山に行く人のための「宿版LCC」</h2>
     </div>
     <div class="concept-grid">
       <div class="concept-text">
         <p class="lead">駒ヶ根に、安宿を作りました。</p>
-        <p>山に行く人も、ただ立ち寄る人も。「ここに泊まる」という選択肢を、ひとつ増やしたくて。地元・駒ヶ根には、これまで安宿がありませんでした。</p>
-        <p>宿のすぐそばには商店街。ご飯屋さんをのぞきながら、旅の途中をゆっくり過ごしてください。</p>
-        <p>駒ヶ根バスターミナルへは新宿・名古屋・大阪・京都から高速バスの直通あり、宿まで駅・バスターミナルから徒歩3分というアクセスの良さも、私たちの自慢です。</p>
+        <p>山に行く人も、ただ立ち寄る人も。地元・駒ヶ根になかった「気軽に泊まれる宿」という選択肢を増やしたくて始めました。</p>
+        <ul class="concept-points">
+          <li><span class="icon">🚏</span><span>駅・バスターミナルから徒歩3分。新宿・名古屋・大阪・京都から高速バス直通。</span></li>
+          <li><span class="icon">🍜</span><span>すぐそばに商店街。ご飯屋さんをのぞきながら、旅の途中をゆっくり。</span></li>
+        </ul>
       </div>
       <div class="photo-ph" style="padding:0; overflow:hidden;">
         <img src="assets/discord_1782540628836_0.png" alt="宿の外観" style="width:100%; height:100%; object-fit:cover; display:block;">
