@@ -2,16 +2,50 @@ require('dotenv').config();
 const { Client, GatewayIntentBits, Partials } = require('discord.js');
 const { spawn } = require('child_process');
 const path = require('path');
+const fs = require('fs');
+const https = require('https');
 
 const TOKEN = process.env.DISCORD_BOT_TOKEN;
 const CHANNEL_ID = process.env.DISCORD_CHANNEL_ID;
 const REPO_DIR = path.resolve(__dirname, '..');
+const ASSETS_DIR = path.join(REPO_DIR, 'assets');
 
 const PROMPT_PREFIX =
   '次の指示に従って、このリポジトリ内のファイルを編集してください。' +
   'git操作（add, commit, push）はこちらで別途行うので、あなたは行わないでください。' +
   '編集が終わったら、変更内容を日本語で短く要約してください。' +
   '指示内容: ';
+
+function downloadFile(url, destPath) {
+  return new Promise((resolve, reject) => {
+    const file = fs.createWriteStream(destPath);
+    https
+      .get(url, (res) => {
+        if (res.statusCode !== 200) {
+          reject(new Error(`ダウンロード失敗: HTTP ${res.statusCode}`));
+          return;
+        }
+        res.pipe(file);
+        file.on('finish', () => file.close(resolve));
+      })
+      .on('error', reject);
+  });
+}
+
+async function saveAttachments(message) {
+  if (!fs.existsSync(ASSETS_DIR)) {
+    fs.mkdirSync(ASSETS_DIR, { recursive: true });
+  }
+  const savedPaths = [];
+  for (const attachment of message.attachments.values()) {
+    const ext = path.extname(attachment.name || '') || '.png';
+    const safeName = `discord_${Date.now()}_${savedPaths.length}${ext}`;
+    const destPath = path.join(ASSETS_DIR, safeName);
+    await downloadFile(attachment.url, destPath);
+    savedPaths.push(`assets/${safeName}`);
+  }
+  return savedPaths;
+}
 
 function runCommand(cmd, args, cwd) {
   return new Promise((resolve) => {
@@ -42,11 +76,24 @@ client.on('messageCreate', async (message) => {
   if (message.channel.id !== CHANNEL_ID) return;
 
   const instruction = message.content.trim();
-  if (!instruction) return;
+  if (!instruction && message.attachments.size === 0) return;
 
   await message.reply('受け取りました。作業を始めます…（少し時間がかかります）');
 
-  const fullPrompt = PROMPT_PREFIX + instruction;
+  let savedPaths = [];
+  try {
+    savedPaths = await saveAttachments(message);
+  } catch (e) {
+    await message.reply(`添付ファイルの保存に失敗しました。\n${e.message}`);
+    return;
+  }
+
+  const attachmentNote =
+    savedPaths.length > 0
+      ? `\n添付された画像は以下のパスに保存済みです。これらのファイルを使ってください: ${savedPaths.join(', ')}`
+      : '';
+
+  const fullPrompt = PROMPT_PREFIX + instruction + attachmentNote;
 
   const claude = spawn(
     process.platform === 'win32' ? 'claude.cmd' : 'claude',
