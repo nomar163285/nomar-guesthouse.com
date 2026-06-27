@@ -97,7 +97,7 @@
   /* Poster-style banner (top of page) */
   .top-banner {
     position: relative;
-    aspect-ratio: 1.905;
+    aspect-ratio: 2.722;
     background:
       linear-gradient(180deg, rgba(20,30,15,0.05) 0%, rgba(20,30,15,0.35) 100%),
       repeating-linear-gradient(115deg, #6b7d4a, #6b7d4a 18px, #5c6f47 18px, #5c6f47 36px),
@@ -106,7 +106,7 @@
     color: #fff;
   }
   @media (min-width: 700px) {
-    .top-banner { aspect-ratio: 3.265; }
+    .top-banner { aspect-ratio: 4.664; }
   }
   .top-banner .photo-note {
     position: absolute; top: 10px; left: 10px; right: 10px;
@@ -283,6 +283,44 @@
   }
   .reserve-note { margin-top: 18px; font-size: 0.72rem; color: #9a9379; }
 
+  .contact-box {
+    max-width: 640px; margin: 32px auto 0; background: #fff;
+    border: 1px solid var(--line); border-radius: 20px; padding: 32px 28px; text-align: left;
+  }
+  .contact-box h3 {
+    font-size: 1rem; color: var(--moss-dark); margin-bottom: 14px;
+  }
+  .contact-notes { margin-bottom: 28px; }
+  .contact-notes p {
+    font-size: 0.82rem; color: #4a4636; margin: 0 0 14px; line-height: 1.7;
+  }
+  .contact-notes p strong { color: var(--moss-dark); }
+  .contact-form label {
+    display: block; font-size: 0.82rem; font-weight: bold; color: var(--moss-dark);
+    margin: 16px 0 6px;
+  }
+  .contact-form label:first-of-type { margin-top: 0; }
+  .contact-form input[type="text"],
+  .contact-form input[type="number"],
+  .contact-form select,
+  .contact-form textarea {
+    width: 100%; padding: 10px 12px; border: 1px solid var(--line); border-radius: 10px;
+    font-size: 0.88rem; font-family: inherit; color: var(--ink); background: #fff;
+  }
+  .contact-form .guest-row {
+    display: grid; grid-template-columns: 1fr 60px; gap: 10px; align-items: center;
+  }
+  .contact-form .guest-row span { font-size: 0.82rem; }
+  .contact-form .guest-grid { display: grid; gap: 10px; }
+  .contact-form button[type="submit"] {
+    width: 100%; margin-top: 24px; background: var(--moss); color: #fff;
+    border: none; padding: 14px; border-radius: 24px; font-weight: bold; font-size: 0.92rem; cursor: pointer;
+  }
+  .contact-form button[type="submit"]:hover { transform: translateY(-2px); }
+  .contact-form-note {
+    margin-top: 14px; font-size: 0.72rem; color: #9a9379;
+  }
+
   footer { background: var(--moss-dark); color: rgba(255,255,255,0.85); padding: 48px 20px 28px; font-size: 0.85rem; }
   .footer-grid { display: grid; gap: 28px; margin-bottom: 28px; }
   @media (min-width: 768px) { .footer-grid { grid-template-columns: 1.2fr 1fr 1fr; } }
@@ -320,7 +358,6 @@
 </header>
 
 <section class="top-banner">
-  <div class="photo-note">[Photo placeholder] Central Alps mountain range as backdrop (same composition as the poster)</div>
   <div class="banner-tagline">A quick rest along your journey</div>
   <div class="banner-headline">Where Mountains <span class="accent">Meet</span> Town</div>
   <div class="banner-logo-wrap">
@@ -445,40 +482,31 @@
     <div class="section-title">
       <span class="eyebrow">Area Guide</span>
       <h2>Around the Area</h2>
-      <p>Komagane is the birthplace of "sauce katsudon" — thick pork cutlet topped with a sweet house sauce.</p>
     </div>
 
     <div class="area-grid">
       <div class="area-card">
-        <div class="photo-ph">[Photo placeholder] Meijitei's sauce katsudon</div>
+        <div class="photo-ph">[Photo placeholder] Sauce katsudon</div>
         <div class="area-card-body">
-          <h4>Meijitei Komagane Main Store</h4>
-          <p>Famous for its secret sauce. Also serves fillet cutlet rice bowls and sauce katsu curry. Queues even on weekdays.</p>
-          <span class="link-note">Official link coming soon</span>
-        </div>
-      </div>
-      <div class="area-card">
-        <div class="photo-ph">[Photo placeholder] Tonkatsu Kiraku interior</div>
-        <div class="area-card-body">
-          <h4>Tonkatsu Kiraku</h4>
-          <p>Run by the third generation, considered one of the originators of sauce katsudon.</p>
-          <span class="link-note">Official link coming soon</span>
+          <h4>Sauce Katsudon</h4>
+          <p>Komagane's signature dish — sauce katsudon. Enjoy it at well-known shops in town such as Meijitei and Tonkatsu Kiraku.</p>
+          <a class="link-note" href="http://www.komacci.or.jp/katsu/searchtop.html" target="_blank" rel="noopener">Find a restaurant (Komagane Chamber of Commerce)</a>
         </div>
       </div>
       <div class="area-card">
         <div class="photo-ph">[Photo placeholder] Senjojiki Cirque view</div>
         <div class="area-card-body">
           <h4>Senjojiki Cirque</h4>
-          <p>A bowl-shaped landform carved by glaciers around 20,000 years ago. Breathtaking views from the 2,612m Senjojiki Station; a roughly 45-minute loop trail. The scenery changes with every season.</p>
-          <span class="link-note">Official link coming soon</span>
+          <p>A bowl-shaped landform carved by glaciers around 20,000 years ago. Breathtaking views from 2,612m. The loop trail takes about 45 minutes, and the scenery changes with every season.</p>
+          <a class="link-note" href="https://www.chuo-alps.com/" target="_blank" rel="noopener">Official website</a>
         </div>
       </div>
       <div class="area-card">
         <div class="photo-ph">[Photo placeholder] Kozenji Temple grounds</div>
         <div class="area-card-body">
           <h4>Kozenji Temple</h4>
-          <p>An old temple linked to the legend of the "loyal dog Hayataro." The weeping cherry blossom light-up in April is especially famous.</p>
-          <span class="link-note">Official link coming soon</span>
+          <p>An old temple linked to the legend of the sacred dog Hayataro. The weeping cherry blossom light-up in April is especially famous.</p>
+          <a class="link-note" href="http://www.kozenji.or.jp/" target="_blank" rel="noopener">Official website</a>
         </div>
       </div>
       <div class="area-card">
@@ -486,15 +514,15 @@
         <div class="area-card-body">
           <h4>Hayataro Onsen</h4>
           <p>A hot spring area with 3 day-use baths and 9 lodging facilities. A clear, alkaline simple hot spring known as a "beauty bath."</p>
-          <span class="link-note">Official link coming soon</span>
+          <a class="link-note" href="https://hayataro.org/" target="_blank" rel="noopener">Official website</a>
         </div>
       </div>
       <div class="area-card">
         <div class="photo-ph">[Photo placeholder] Komagane station-front shopping street</div>
         <div class="area-card-body">
-          <h4>Komagane Highland &amp; Station-front Shopping Street</h4>
-          <p>A nostalgic shopping street where you can chat with locals or take retro-style photos. Komagane is also a rare town producing beer, wine, whisky and sake all at once.</p>
-          <span class="link-note">Official link coming soon</span>
+          <h4>Komagane Station-front Shopping Street</h4>
+          <p>A nostalgic shopping street where you can chat with locals or take retro-style photos. Komagane is also a rare town producing beer, wine, whisky, and sake all at once.</p>
+          <a class="link-note" href="https://www.kankou-komagane.com/course/1390/" target="_blank" rel="noopener">Official website</a>
         </div>
       </div>
     </div>
@@ -526,20 +554,20 @@
           <dt>Nearest station / bus terminal</dt>
           <dd>3-minute walk from JR Komagane Station / Komagane Bus Terminal</dd>
           <dt>Parking</dt>
-          <dd>Available (1 min walk from the guesthouse, approx. ¥500/stay)</dd>
+          <dd>Available (about 1 min walk from the guesthouse, ¥500 per stay. Limited to 3 cars. If full, please use a nearby coin parking lot.)</dd>
         </dl>
       </div>
       <div>
         <p style="font-size:0.85rem; opacity:0.85; margin-bottom:6px;">Direct highway buses to Komagane Bus Terminal</p>
         <table class="bus-table">
           <thead>
-            <tr><th>From</th><th>Bus Stop</th><th>Duration</th><th>Approx. Fare</th></tr>
+            <tr><th>From</th><th>Duration</th></tr>
           </thead>
           <tbody>
-            <tr><td>Tokyo / Shinjuku</td><td>Busta Shinjuku</td><td>approx. 3.5–4 hrs</td><td>approx. ¥3,500+</td></tr>
-            <tr><td>Nagoya</td><td>Meitetsu Bus Center 3F</td><td>approx. 2.5–3 hrs</td><td>approx. ¥3,600</td></tr>
-            <tr><td>Osaka</td><td>Hankyu Sanbangai / Shin-Osaka</td><td>approx. 6 hrs</td><td>TBC</td></tr>
-            <tr><td>Kyoto</td><td>Kyoto Fukakusa Bus Stop</td><td>approx. 4.5 hrs</td><td>TBC</td></tr>
+            <tr><td>Tokyo / Shinjuku</td><td>approx. 3.5–4 hrs</td></tr>
+            <tr><td>Nagoya</td><td>approx. 2.5–3 hrs</td></tr>
+            <tr><td>Osaka</td><td>approx. 6 hrs</td></tr>
+            <tr><td>Kyoto</td><td>approx. 4.5 hrs</td></tr>
           </tbody>
         </table>
         <p style="font-size:0.7rem; opacity:0.6; margin-top:8px;">* Fares and schedules may change. Please check the latest information before booking.</p>
@@ -557,7 +585,7 @@
     <div class="faq-list">
       <details open>
         <summary>Is parking available?</summary>
-        <p>Yes. It's about a 1-minute walk from the guesthouse, and costs approximately ¥500 per stay.</p>
+        <p>Yes. It's about a 1-minute walk from the guesthouse and costs ¥500 per stay. Limited to 3 cars. If full, please use a nearby coin parking lot.</p>
       </details>
       <details>
         <summary>Do you have a female-only dormitory?</summary>
@@ -587,9 +615,66 @@
       <div class="reserve-btns">
         <a href="https://booking.com/mywishlist.html?wl=cc1d4618b2074935a1bdff0872ad8803&aid=2311236" class="btn btn-primary" target="_blank" rel="noopener">View on Booking.com</a>
         <a href="https://www.airbnb.jp/rooms/1696222200172683768" class="btn-outline" target="_blank" rel="noopener">View on Airbnb (Private Room)</a>
-        <a href="mailto:nomar16328.5@gmail.com" class="btn-outline">Contact Us Directly</a>
       </div>
       <p class="reserve-note">* These buttons currently link to placeholders. The booking system (Google Apps Script integration) is planned for a later phase. We hope to shift more bookings to our official LINE and this website over time.</p>
+      <p class="lead" style="margin-top:1.5em;">Or contact us directly below!</p>
+
+      <div class="contact-box">
+        <h3>Inquiry Form</h3>
+        <div class="contact-notes">
+          <p>Please fill out the details below to make a reservation or inquiry.</p>
+          <p>📌 <strong>About the booking process</strong><br>
+            After reviewing your inquiry, we'll contact you to confirm or decline.<br>
+            If confirmed, we'll also let you know the price and payment method.</p>
+          <p>📌 <strong>About the dormitory</strong><br>
+            The dormitory is a mixed-gender shared room.<br>
+            *If you'd prefer a single-gender room, please mention it in your message.</p>
+          <p>📌 <strong>About amenities</strong><br>
+            Towels and amenities are available for rent at an additional cost.<br>
+            The fee will be included in our confirmation email.</p>
+          <p>📌 <strong>About parking</strong><br>
+            Parking is available for an additional ¥500 per stay.</p>
+        </div>
+
+        <form class="contact-form" id="contact-form">
+          <label for="c-name">Name</label>
+          <input type="text" id="c-name" required>
+
+          <label for="c-date">1. Desired check-in date (e.g., July 15)</label>
+          <input type="text" id="c-date" placeholder="e.g., July 15" required>
+
+          <label for="c-nights">2. Number of nights (e.g., 2 nights)</label>
+          <input type="text" id="c-nights" placeholder="e.g., 2 nights" required>
+
+          <label for="c-roomtype">3. Room type</label>
+          <select id="c-roomtype" required>
+            <option value="">Please select</option>
+            <option value="Private Room">Private Room</option>
+            <option value="Dormitory">Dormitory</option>
+          </select>
+
+          <label>4. Number of guests</label>
+          <div class="guest-grid">
+            <div class="guest-row"><span>Adult men</span><input type="number" id="c-men" min="0" value="0"></div>
+            <div class="guest-row"><span>Adult women</span><input type="number" id="c-women" min="0" value="0"></div>
+            <div class="guest-row"><span>Children (5 and under)</span><input type="number" id="c-child-young" min="0" value="0"></div>
+            <div class="guest-row"><span>Children (6 and over)</span><input type="number" id="c-child-old" min="0" value="0"></div>
+          </div>
+
+          <label for="c-parking">5. Parking</label>
+          <select id="c-parking" required>
+            <option value="">Please select</option>
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
+          </select>
+
+          <label for="c-memo">Other requests or questions</label>
+          <textarea id="c-memo" rows="3"></textarea>
+
+          <button type="submit">Send this inquiry</button>
+        </form>
+        <p class="contact-form-note">* Clicking the send button will open your email app with a pre-filled message. Please review it and send as is.</p>
+      </div>
     </div>
   </div>
 </section>
@@ -629,6 +714,35 @@
     </div>
   </div>
 </footer>
+
+<script>
+  document.getElementById('contact-form').addEventListener('submit', function (e) {
+    e.preventDefault();
+    var val = function (id) { return document.getElementById(id).value.trim(); };
+    var name = val('c-name');
+    var lines = [
+      'Name: ' + name,
+      '',
+      '1. Desired check-in date: ' + val('c-date'),
+      '2. Number of nights: ' + val('c-nights'),
+      '3. Room type: ' + val('c-roomtype'),
+      '4. Number of guests:',
+      '  - Adult men: ' + val('c-men'),
+      '  - Adult women: ' + val('c-women'),
+      '  - Children (5 and under): ' + val('c-child-young'),
+      '  - Children (6 and over): ' + val('c-child-old'),
+      '5. Parking: ' + val('c-parking'),
+      '',
+      'Other requests or questions:',
+      val('c-memo')
+    ];
+    var subject = 'guesthouse のまー Reservation Inquiry (' + name + ')';
+    var body = lines.join('\n');
+    window.location.href = 'mailto:nomar16328.5@gmail.com'
+      + '?subject=' + encodeURIComponent(subject)
+      + '&body=' + encodeURIComponent(body);
+  });
+</script>
 
 </body>
 </html>
