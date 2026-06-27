@@ -13,8 +13,7 @@ const ASSETS_DIR = path.join(REPO_DIR, 'assets');
 const PROMPT_PREFIX =
   '次の指示に従って、このリポジトリ内のファイルを編集してください。' +
   'git操作（add, commit, push）はこちらで別途行うので、あなたは行わないでください。' +
-  '編集が終わったら、変更内容を日本語で短く要約してください。' +
-  '指示内容: ';
+  '編集が終わったら、変更内容を日本語で短く要約してください。\n\n';
 
 function downloadFile(url, destPath) {
   return new Promise((resolve, reject) => {
@@ -90,10 +89,11 @@ client.on('messageCreate', async (message) => {
 
   const attachmentNote =
     savedPaths.length > 0
-      ? `\n添付された画像は以下のパスに保存済みです。これらのファイルを使ってください: ${savedPaths.join(', ')}`
+      ? '添付画像は以下のパスにすでに保存済みです。指示文中に元のファイル名（IMG_xxxxなど）が書かれていても無視し、' +
+        `必ず次の保存済みパスを使ってください: ${savedPaths.join(', ')}\n\n`
       : '';
 
-  const fullPrompt = PROMPT_PREFIX + instruction + attachmentNote;
+  const fullPrompt = PROMPT_PREFIX + attachmentNote + '指示内容: ' + instruction;
 
   const claude = spawn(
     process.platform === 'win32' ? 'claude.cmd' : 'claude',
