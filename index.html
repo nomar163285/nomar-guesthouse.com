@@ -249,6 +249,17 @@
   .room-rules ul { padding-left: 1.1em; }
   .room-rules li { margin-bottom: 4px; }
 
+  /* Room Photo Gallery */
+  .room-photo-grid {
+    display: grid; grid-template-columns: repeat(2, 1fr); gap: 4px;
+  }
+  @media (min-width: 768px) {
+    .room-photo-grid { grid-template-columns: repeat(4, 1fr); }
+  }
+  .room-photo-grid img {
+    width: 100%; aspect-ratio: 1 / 1; object-fit: cover; display: block;
+  }
+
   /* Amenities */
   .amenity-grid {
     display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px;
@@ -529,6 +540,15 @@
         <li>チェックイン 16:00〜23:00　／　チェックアウト 〜11:00</li>
       </ul>
     </div>
+  </div>
+</section>
+
+<section id="room-photos">
+  <div class="room-photo-grid">
+    <img src="assets/discord_1782892911148_0.jpg" alt="">
+    <img src="assets/discord_1782892912422_1.jpg" alt="">
+    <img src="assets/discord_1782892913056_2.jpg" alt="">
+    <img src="assets/discord_1782892913359_3.jpg" alt="">
   </div>
 </section>
 
