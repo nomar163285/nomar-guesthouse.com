@@ -401,6 +401,7 @@
   }
   .contact-form label:first-of-type { margin-top: 0; }
   .contact-form input[type="text"],
+  .contact-form input[type="tel"],
   .contact-form input[type="number"],
   .contact-form select,
   .contact-form textarea {
@@ -774,6 +775,9 @@
           <label for="c-name">お名前</label>
           <input type="text" id="c-name" required>
 
+          <label for="c-phone">電話番号</label>
+          <input type="tel" id="c-phone" placeholder="例：090-0000-0000">
+
           <label for="c-date">1. 宿泊希望日（例：7月15日）</label>
           <input type="text" id="c-date" placeholder="例：7月15日" required>
 
@@ -856,6 +860,7 @@
     var name = val('c-name');
     var lines = [
       'お名前: ' + name,
+      '電話番号: ' + val('c-phone'),
       '',
       '1. 宿泊希望日: ' + val('c-date'),
       '2. 宿泊数: ' + val('c-nights'),

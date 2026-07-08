@@ -345,6 +345,7 @@
   }
   .contact-form label:first-of-type { margin-top: 0; }
   .contact-form input[type="text"],
+  .contact-form input[type="tel"],
   .contact-form input[type="number"],
   .contact-form select,
   .contact-form textarea {
@@ -701,6 +702,9 @@
           <label for="c-name">Name</label>
           <input type="text" id="c-name" required>
 
+          <label for="c-phone">Phone number</label>
+          <input type="tel" id="c-phone" placeholder="e.g., +81-90-0000-0000">
+
           <label for="c-date">1. Desired check-in date (e.g., July 15)</label>
           <input type="text" id="c-date" placeholder="e.g., July 15" required>
 
@@ -783,6 +787,7 @@
     var name = val('c-name');
     var lines = [
       'Name: ' + name,
+      'Phone: ' + val('c-phone'),
       '',
       '1. Desired check-in date: ' + val('c-date'),
       '2. Number of nights: ' + val('c-nights'),
