@@ -806,6 +806,9 @@
             <option value="なし">なし</option>
           </select>
 
+          <label for="c-arrival">6. 到着予定時刻（例：18時頃）</label>
+          <input type="text" id="c-arrival" placeholder="例：18時頃">
+
           <label for="c-memo">その他ご要望・ご質問</label>
           <textarea id="c-memo" rows="3"></textarea>
 
@@ -871,6 +874,7 @@
       '　・お子様（5歳以下）　' + val('c-child-young') + '名',
       '　・お子様（6歳以上）　' + val('c-child-old') + '名',
       '5. 駐車場の利用: ' + val('c-parking'),
+      '6. 到着予定時刻: ' + val('c-arrival'),
       '',
       'その他ご要望・ご質問:',
       val('c-memo')

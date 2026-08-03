@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>駅・バスターミナルへの道案内（掲示用）</title>
+<style>
+  :root {
+    --moss: #1c2d57;
+    --moss-dark: #0f1a38;
+    --terracotta: #c9a227;
+    --sand: #f2e4bb;
+    --sand-light: #fbf6e6;
+    --ink: #2a2412;
+    --line: #e3d39e;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  @page { size: A4; margin: 0; }
+  body {
+    font-family: "Hiragino Sans", "Yu Gothic", "Noto Sans JP", sans-serif;
+    color: var(--ink);
+    background: #ddd;
+  }
+  .sheet {
+    width: 210mm;
+    height: 297mm;
+    margin: 12px auto;
+    background: var(--sand-light);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+  @media print {
+    body { background: #fff; }
+    .sheet { margin: 0; box-shadow: none; }
+  }
+  .header {
+    background: var(--moss-dark);
+    color: #fff;
+    padding: 8px 40px 6px;
+    text-align: center;
+  }
+  .header .logo { font-size: 0.92rem; opacity: 0.9; letter-spacing: 0.1em; margin-bottom: 3px; }
+  .header h1 {
+    font-size: 1.6rem; font-weight: 900; line-height: 1.25;
+  }
+  .header h1 .en { display: block; font-size: 0.88rem; font-weight: 700; opacity: 1; margin-top: 2px; letter-spacing: 0.02em; }
+
+  .body-area { flex: 1; padding: 8px 40px; display: flex; flex-direction: column; gap: 5px; }
+
+  .map-card {
+    border-radius: 16px; background: #fff; border: 1px solid var(--line);
+    padding: 7px; box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+  }
+
+  .dest-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .dest-card {
+    border-radius: 14px; background: #fff; border: 1px solid var(--line);
+    padding: 9px 13px;
+  }
+  .dest-card h2 {
+    font-size: 1.04rem; font-weight: 900; display: flex; align-items: center; gap: 7px; margin-bottom: 1px;
+  }
+  .dest-card h2 .en { display: block; font-size: 0.68rem; font-weight: 700; opacity: 0.95; margin-top: 1px; }
+  .dest-card .badge {
+    display: inline-block; background: var(--terracotta); color: #fff;
+    border-radius: 999px; padding: 3px 12px; font-size: 0.86rem; font-weight: 800;
+    margin: 4px 0 5px;
+  }
+  .dest-card .badge .en { display:block; font-size: 0.62rem; font-weight: 700; opacity: 1; }
+
+  .steps { display: grid; gap: 5px; }
+  .step {
+    display: flex; gap: 7px; align-items: flex-start;
+    background: var(--sand-light); border: 1px solid var(--line); border-radius: 10px;
+    padding: 5px 9px;
+  }
+  .step .num {
+    flex: none; width: 22px; height: 22px; border-radius: 50%;
+    background: var(--moss); color: #fff; font-weight: 900;
+    display: flex; align-items: center; justify-content: center; font-size: 0.78rem;
+  }
+  .step .txt { font-size: 0.81rem; line-height: 1.2; }
+  .step .txt .en { display: block; font-size: 0.66rem; opacity: 0.95; margin-top: 1px; }
+
+  .note {
+    text-align: center; font-size: 0.7rem; opacity: 0.85; line-height: 1.2;
+  }
+
+  .footer {
+    margin-top: auto;
+    background: var(--moss); color: #fff;
+    text-align: center; padding: 6px 30px;
+    font-size: 0.82rem; line-height: 1.25;
+  }
+  .footer .en { opacity: 1; font-size: 0.72rem; }
+</style>
+</head>
+<body>
+<div class="sheet">
+  <div class="header">
+    <div class="logo">guesthouse のまー</div>
+    <h1>駅・バスターミナルへの道案内<span class="en">Way to the Station &amp; Bus Terminal</span></h1>
+  </div>
+
+  <div class="body-area">
+    <div class="map-card">
+      <svg viewBox="0 0 560 460" style="display:block; width:100%; height:auto; aspect-ratio: 560 / 460;" role="img" aria-label="宿周辺の道路を含めた駅・バスターミナルまでの地図イラスト（東を上にした向き）">
+        <defs>
+          <style>
+            .road { fill: #eae1c6; stroke: #d9cca0; }
+            .road-line { fill: none; stroke: #fdfaf0; stroke-width: 4; stroke-dasharray: 13 11; }
+            .blk { fill: #fff8ea; stroke: var(--line); stroke-width: 2; rx: 8; }
+            .tree circle { fill: #9cbf7a; }
+            .tree rect { fill: #8a6a44; }
+            .lbl-sm { font-size: 15px; fill: var(--ink); opacity: 1; }
+          </style>
+        </defs>
+
+        <rect x="0" y="0" width="560" height="460" fill="var(--sand-light)"/>
+
+        <!-- compass: North now points left, since East is up -->
+        <g transform="translate(500,40)">
+          <circle r="18" fill="#fff" stroke="var(--line)" stroke-width="2"/>
+          <line x1="11" y1="0" x2="-11" y2="0" stroke="var(--ink)" stroke-width="2"/>
+          <polygon points="-15,0 -5,-5 -5,5" fill="var(--terracotta)"/>
+          <text x="0" y="-24" text-anchor="middle" font-size="11" fill="var(--ink)" font-weight="bold">北</text>
+        </g>
+
+        <!-- decorative town blocks -->
+        <rect class="blk" x="160" y="140" width="46" height="55" rx="8"/>
+        <rect class="blk" x="280" y="140" width="46" height="55" rx="8"/>
+        <rect class="blk" x="160" y="240" width="46" height="55" rx="8"/>
+        <rect class="blk" x="280" y="240" width="46" height="55" rx="8"/>
+
+        <!-- trees -->
+        <g class="tree"><circle cx="240" cy="170" r="8"/><rect x="238" y="175" width="4" height="7"/></g>
+        <g class="tree"><circle cx="460" cy="170" r="8"/><rect x="458" y="175" width="4" height="7"/></g>
+        <g class="tree"><circle cx="240" cy="270" r="8"/><rect x="238" y="275" width="4" height="7"/></g>
+        <g class="tree"><circle cx="460" cy="270" r="8"/><rect x="458" y="275" width="4" height="7"/></g>
+        <g class="tree"><circle cx="150" cy="270" r="8"/><rect x="148" y="275" width="4" height="7"/></g>
+
+        <!-- base roads (real streets, simplified as a right-angle grid; rotated so East is up) -->
+        <path class="road" d="M 90 320 L 90 80" stroke-width="30" fill="none" stroke-linecap="round"/>
+        <path class="road-line" d="M 90 320 L 90 80"/>
+
+        <path class="road" d="M 90 320 L 420 320" stroke-width="26" fill="none" stroke-linecap="round"/>
+        <path class="road-line" d="M 90 320 L 420 320"/>
+
+        <path class="road" d="M 90 220 L 420 220" stroke-width="22" fill="none" stroke-linecap="round"/>
+        <path class="road-line" d="M 90 220 L 420 220"/>
+
+        <path class="road" d="M 90 120 L 420 120" stroke-width="26" fill="none" stroke-linecap="round"/>
+        <path class="road-line" d="M 90 120 L 420 120"/>
+
+        <path class="road" d="M 420 320 L 420 60" stroke-width="26" fill="none" stroke-linecap="round"/>
+        <path class="road-line" d="M 420 320 L 420 60"/>
+
+        <path class="road" d="M 320 320 L 320 380" stroke-width="20" fill="none" stroke-linecap="round"/>
+        <path class="road-line" d="M 320 320 L 320 380"/>
+
+        <!-- highlighted route overlays (right-angle turns) -->
+        <path d="M 90 220 L 90 120 L 420 120 L 420 60"
+          fill="none" stroke="var(--moss)" stroke-width="7" stroke-dasharray="3 12" stroke-linecap="round" opacity="0.95"/>
+        <polygon points="420,60 412,73 428,73" fill="var(--moss)"/>
+
+        <path d="M 90 220 L 90 320 L 320 320 L 320 380"
+          fill="none" stroke="var(--terracotta)" stroke-width="7" stroke-dasharray="3 12" stroke-linecap="round" opacity="0.95"/>
+        <polygon points="320,380 312,367 328,367" fill="var(--terracotta)"/>
+
+        <!-- landmark: 駒ヶ根郵便局 (turn point, dead end below) -->
+        <circle cx="90" cy="320" r="16" fill="#fff" stroke="var(--terracotta)" stroke-width="3.5"/>
+        <text x="90" y="326" text-anchor="middle" font-size="14" fill="var(--terracotta)" font-weight="bold">〒</text>
+        <text x="90" y="354" text-anchor="middle" class="lbl-sm">駒ヶ根郵便局</text>
+        <text x="90" y="368" text-anchor="middle" font-size="10" fill="var(--ink)" opacity="0.9" font-weight="600">Post Office</text>
+
+        <!-- landmark: 辰見町の信号 (turn point, crossroads above) -->
+        <g transform="translate(90,120)">
+          <rect x="-6" y="-22" width="12" height="28" rx="3" fill="#fff" stroke="var(--moss)" stroke-width="2.5"/>
+          <circle cx="0" cy="-16" r="3" fill="#e0554f"/>
+          <circle cx="0" cy="-8" r="3" fill="#e8b93f"/>
+          <circle cx="0" cy="0" r="3" fill="#5c9a5c"/>
+        </g>
+        <text x="90" y="66" text-anchor="middle" font-size="10" fill="var(--ink)" opacity="0.9" font-weight="600">Tatsumimachi Light</text>
+        <text x="90" y="82" text-anchor="middle" class="lbl-sm">辰見町の信号</text>
+
+        <!-- バスターミナル -->
+        <g transform="translate(320,380)">
+          <circle r="20" fill="var(--terracotta)"/>
+          <rect x="-12" y="-8" width="24" height="15" rx="3" fill="#fff"/>
+          <circle cx="-6" cy="7" r="2.8" fill="#fff"/>
+          <circle cx="6" cy="7" r="2.8" fill="#fff"/>
+        </g>
+        <text x="346" y="372" text-anchor="start" font-size="16" fill="var(--ink)" font-weight="bold">バスターミナル</text>
+        <text x="346" y="387" text-anchor="start" font-size="11" fill="var(--ink)" opacity="0.9" font-weight="600">Bus Terminal</text>
+        <text x="346" y="403" text-anchor="start" font-size="13" fill="var(--ink)" opacity="1">徒歩約3分・220m</text>
+        <text x="346" y="417" text-anchor="start" font-size="10" fill="var(--ink)" opacity="0.9" font-weight="600">~3 min walk / 220m</text>
+
+        <!-- JR駒ヶ根駅 -->
+        <g transform="translate(420,60)">
+          <circle r="20" fill="var(--moss)"/>
+          <rect x="-11" y="-10" width="22" height="16" rx="3" fill="#fff"/>
+          <polygon points="-11,-10 0,-18 11,-10" fill="#fff"/>
+          <circle cx="-5" cy="3" r="2.4" fill="var(--moss)"/>
+          <circle cx="5" cy="3" r="2.4" fill="var(--moss)"/>
+        </g>
+        <text x="392" y="52" text-anchor="end" font-size="16" fill="var(--ink)" font-weight="bold">JR駒ヶ根駅</text>
+        <text x="392" y="67" text-anchor="end" font-size="11" fill="var(--ink)" opacity="0.9" font-weight="600">JR Komagane Sta.</text>
+        <text x="392" y="83" text-anchor="end" font-size="13" fill="var(--ink)" opacity="1">徒歩約3分・230m</text>
+        <text x="392" y="98" text-anchor="end" font-size="10" fill="var(--ink)" opacity="0.9" font-weight="600">~3 min walk / 230m</text>
+
+        <!-- 宿 (inn) -->
+        <g transform="translate(90,220)">
+          <circle r="27" fill="var(--moss-dark)" stroke="#fff" stroke-width="3"/>
+          <polygon points="-13,2 0,-13 13,2" fill="var(--sand)"/>
+          <rect x="-10" y="2" width="20" height="12" fill="var(--sand)"/>
+          <rect x="-3" y="6" width="6" height="8" fill="var(--moss-dark)"/>
+        </g>
+        <rect x="33" y="249" width="114" height="36" rx="14" fill="var(--terracotta)"/>
+        <text x="90" y="266" text-anchor="middle" font-size="15" fill="#fff" font-weight="bold">のまー ★</text>
+        <text x="90" y="280" text-anchor="middle" font-size="10" fill="#fff" opacity="1">Guesthouse Nomar</text>
+      </svg>
+
+      <div style="display:flex; gap:22px; justify-content:center; margin-top:6px; font-size:0.85rem;">
+        <div style="display:flex; align-items:center; gap:6px;"><span style="display:inline-block; width:22px; height:4px; background:var(--moss); border-radius:2px;"></span>JR駒ヶ根駅ルート <span style="opacity:0.65; font-size:0.82em;">/ Station route</span></div>
+        <div style="display:flex; align-items:center; gap:6px;"><span style="display:inline-block; width:22px; height:4px; background:var(--terracotta); border-radius:2px;"></span>バスターミナルルート <span style="opacity:0.65; font-size:0.82em;">/ Bus terminal route</span></div>
+      </div>
+    </div>
+
+    <div class="dest-grid">
+      <div class="dest-card">
+        <h2 style="font-size:0.86rem;"><span style="white-space:nowrap;">🚌 駒ヶ根バスターミナル</span><span class="en">Komagane Bus Terminal</span></h2>
+        <div class="badge">徒歩 約3分（220m）<span class="en">~3 min walk (220m)</span></div>
+        <div class="steps">
+          <div class="step">
+            <div class="num">1</div>
+            <div class="txt">宿を出て西に進みます。<span class="en">Leave the guesthouse and head west.</span></div>
+          </div>
+          <div class="step">
+            <div class="num">2</div>
+            <div class="txt"><strong>郵便局</strong>を左折します。<span class="en">Turn left at the post office.</span></div>
+          </div>
+          <div class="step">
+            <div class="num">3</div>
+            <div class="txt">そのまま進むと右手側にバスターミナルがあります。<span class="en">Continue on and the bus terminal will be on your right.</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="dest-card">
+        <h2>🚉 JR駒ヶ根駅<span class="en">JR Komagane Station</span></h2>
+        <div class="badge">徒歩 約3分（230m）<span class="en">~3 min walk (230m)</span></div>
+        <div class="steps">
+          <div class="step">
+            <div class="num">1</div>
+            <div class="txt">宿を出て東に進みます。<span class="en">Leave the guesthouse and head east.</span></div>
+          </div>
+          <div class="step">
+            <div class="num">2</div>
+            <div class="txt"><strong>辰見町の信号</strong>を右折します。<span class="en">Turn right at the Tatsumimachi traffic light.</span></div>
+          </div>
+          <div class="step">
+            <div class="num">3</div>
+            <div class="txt">道なりに進むと左手側にJR駒ヶ根駅があります。<span class="en">Continue along the road and JR Komagane Station will be on your left.</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <p class="note">※駅とバスターミナルは別の場所です。行き先をご確認のうえお進みください。簡略図のため実際の道の形・縮尺とは異なります。ご不明な点はスタッフまでお気軽にお尋ねください。<br>
+      <span class="en">Note: the station and the bus terminal are two different locations. This is a simplified diagram, not to scale — please ask staff if you need help.</span>
+    </p>
+  </div>
+
+  <div class="footer">
+    guesthouse のまー　長野県駒ヶ根市北町5-16328-5　TEL: 080-8083-7355
+    <div class="en">5-16328-5 Kitamachi, Komagane, Nagano</div>
+  </div>
+</div>
+</body>
+</html>

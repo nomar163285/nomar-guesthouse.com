@@ -109,16 +109,24 @@ client.on('messageCreate', async (message) => {
 
   claude.stdout.on('data', (data) => {
     output += data.toString();
+    console.log('[claude stdout]', data.toString());
   });
 
   claude.stderr.on('data', (data) => {
     errorOutput += data.toString();
+    console.error('[claude stderr]', data.toString());
+  });
+
+  claude.on('error', async (err) => {
+    console.error('[claude spawn error]', err);
+    await message.reply(`claudeコマンドの起動に失敗しました。\n${err.message}`);
   });
 
   claude.on('close', async (code) => {
+    console.log('[claude closed] code =', code);
     if (code !== 0) {
       await message.reply(
-        `エラーが発生しました（コード: ${code}）。\n${errorOutput.slice(0, 1500) || '詳細不明'}`
+        `エラーが発生しました（コード: ${code}）。\n${errorOutput.slice(0, 1500) || output.slice(0, 1500) || '詳細不明（PowerShellのログを確認してください）'}`
       );
       return;
     }
