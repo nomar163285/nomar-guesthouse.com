@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>コンビニ・スーパーへの道案内（掲示用）</title>
+<style>
+  :root {
+    --moss: #1c2d57;
+    --moss-dark: #0f1a38;
+    --terracotta: #c9a227;
+    --plum: #8a3f5c;
+    --sand: #f2e4bb;
+    --sand-light: #fbf6e6;
+    --ink: #2a2412;
+    --line: #e3d39e;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  @page { size: A4 landscape; margin: 0; }
+  body {
+    font-family: "Hiragino Sans", "Yu Gothic", "Noto Sans JP", sans-serif;
+    color: var(--ink);
+    background: #ddd;
+  }
+  .sheet {
+    width: 297mm;
+    height: 210mm;
+    margin: 12px auto;
+    background: var(--sand-light);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+  @media print {
+    body { background: #fff; }
+    .sheet { margin: 0; box-shadow: none; }
+  }
+  .header {
+    background: var(--moss-dark);
+    color: #fff;
+    padding: 10px 40px 8px;
+    text-align: center;
+  }
+  .header .logo { font-size: 0.95rem; opacity: 0.9; letter-spacing: 0.1em; margin-bottom: 3px; }
+  .header h1 {
+    font-size: 1.5rem; font-weight: 900; line-height: 1.25;
+  }
+  .header h1 .en { display: block; font-size: 0.85rem; font-weight: 700; opacity: 1; margin-top: 2px; letter-spacing: 0.02em; }
+
+  .body-area { flex: 1; padding: 10px 34px; display: flex; flex-direction: column; gap: 6px; min-height: 0; }
+
+  .map-card {
+    border-radius: 16px; background: #fff; border: 1px solid var(--line);
+    padding: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+    flex: 1; display: flex; flex-direction: column; min-height: 0;
+  }
+  .map-card svg { flex: 1; min-height: 0; }
+
+  .note {
+    text-align: center; font-size: 0.72rem; opacity: 0.85; line-height: 1.25;
+  }
+
+  .footer {
+    margin-top: auto;
+    background: var(--moss); color: #fff;
+    text-align: center; padding: 7px 30px;
+    font-size: 0.85rem; line-height: 1.3;
+  }
+  .footer .en { opacity: 1; font-size: 0.74rem; }
+</style>
+</head>
+<body>
+<div class="sheet">
+  <div class="header">
+    <div class="logo">guesthouse のまー</div>
+    <h1>コンビニ・スーパーへの道案内<span class="en">Way to Convenience Stores &amp; Supermarket</span></h1>
+  </div>
+
+  <div class="body-area">
+    <div class="map-card">
+      <svg viewBox="0 0 800 566" preserveAspectRatio="xMidYMid meet" style="display:block; width:100%; height:100%;" role="img" aria-label="宿からコンビニ・スーパーまでの地図イラスト（東を上にした向き）">
+        <defs>
+          <style>
+            .road { fill: #eae1c6; stroke: #d9cca0; }
+            .road-line { fill: none; stroke: #fdfaf0; stroke-width: 4; stroke-dasharray: 13 11; }
+            .blk { fill: #fff8ea; stroke: var(--line); stroke-width: 2; rx: 8; }
+            .tree circle { fill: #9cbf7a; }
+            .tree rect { fill: #8a6a44; }
+          </style>
+        </defs>
+
+        <rect x="0" y="0" width="800" height="566" fill="var(--sand-light)"/>
+
+        <!-- compass: North points left, since East is up -->
+        <g transform="translate(740,50)">
+          <circle r="20" fill="#fff" stroke="var(--line)" stroke-width="2"/>
+          <line x1="12" y1="0" x2="-12" y2="0" stroke="var(--ink)" stroke-width="2"/>
+          <polygon points="-16,0 -5,-6 -5,6" fill="var(--terracotta)"/>
+          <text x="0" y="-26" text-anchor="middle" font-size="12" fill="var(--ink)" font-weight="bold">北</text>
+        </g>
+
+        <!-- decorative town blocks -->
+        <rect class="blk" x="230" y="450" width="55" height="55" rx="8"/>
+        <rect class="blk" x="230" y="210" width="55" height="60" rx="8"/>
+        <rect class="blk" x="480" y="450" width="55" height="55" rx="8"/>
+        <rect class="blk" x="680" y="240" width="50" height="55" rx="8"/>
+
+        <!-- trees -->
+        <g class="tree"><circle cx="220" cy="300" r="9"/><rect x="218" y="306" width="4" height="8"/></g>
+        <g class="tree"><circle cx="280" cy="260" r="9"/><rect x="278" y="266" width="4" height="8"/></g>
+        <g class="tree"><circle cx="200" cy="270" r="9"/><rect x="198" y="276" width="4" height="8"/></g>
+        <g class="tree"><circle cx="700" cy="180" r="9"/><rect x="698" y="186" width="4" height="8"/></g>
+        <g class="tree"><circle cx="480" cy="330" r="9"/><rect x="478" y="336" width="4" height="8"/></g>
+
+        <!-- base roads (schematic right-angle grid; rotated so East is up) -->
+        <path class="road" d="M 370 300 L 370 420" stroke-width="20" fill="none" stroke-linecap="round"/>
+        <path class="road-line" d="M 370 300 L 370 420"/>
+
+        <path class="road" d="M 136 420 L 630 420" stroke-width="28" fill="none" stroke-linecap="round"/>
+        <path class="road-line" d="M 136 420 L 630 420"/>
+
+        <path class="road" d="M 370 300 L 370 210" stroke-width="26" fill="none" stroke-linecap="round"/>
+        <path class="road-line" d="M 370 300 L 370 210"/>
+
+        <path class="road" d="M 370 210 L 537 210" stroke-width="24" fill="none" stroke-linecap="round"/>
+        <path class="road-line" d="M 370 210 L 537 210"/>
+
+        <path class="road" d="M 537 210 L 537 130" stroke-width="22" fill="none" stroke-linecap="round"/>
+        <path class="road-line" d="M 537 210 L 537 130"/>
+
+        <!-- highlighted route overlays -->
+        <path d="M 370 300 L 370 420 L 136 420"
+          fill="none" stroke="var(--moss)" stroke-width="8" stroke-dasharray="3 13" stroke-linecap="round" stroke-linejoin="round" opacity="0.95"/>
+        <polygon points="136,420 150,412 150,428" fill="var(--moss)"/>
+
+        <path d="M 370 300 L 370 210 L 537 210 L 537 130"
+          fill="none" stroke="var(--terracotta)" stroke-width="8" stroke-dasharray="3 13" stroke-linecap="round" stroke-linejoin="round" opacity="0.95"/>
+        <polygon points="537,130 528,144 546,144" fill="var(--terracotta)"/>
+
+        <path d="M 370 300 L 370 420 L 630 420"
+          fill="none" stroke="var(--plum)" stroke-width="8" stroke-dasharray="3 13" stroke-linecap="round" stroke-linejoin="round" opacity="0.95"/>
+        <polygon points="630,420 616,412 616,428" fill="var(--plum)"/>
+
+        <!-- ファミリーマート駒ヶ根アクセス店 (via west jog, then north) -->
+        <g transform="translate(136,420)">
+          <circle r="24" fill="var(--moss)"/>
+          <polygon points="-15,-7 0,-16 15,-7" fill="#fff"/>
+          <rect x="-13" y="-7" width="26" height="18" rx="2" fill="#fff"/>
+          <rect x="-4" y="3" width="8" height="9" fill="var(--moss)"/>
+        </g>
+        <text x="136" y="466" text-anchor="middle" font-size="19" fill="var(--ink)" font-weight="bold">ファミリーマート</text>
+        <text x="136" y="484" text-anchor="middle" font-size="13" fill="var(--ink)" font-weight="600">FamilyMart Komagane Access</text>
+        <text x="136" y="503" text-anchor="middle" font-size="14" fill="var(--ink)">徒歩約8分・550m</text>
+        <text x="136" y="519" text-anchor="middle" font-size="12" fill="var(--ink)" font-weight="600">~8 min walk / 550m</text>
+
+        <!-- landmark: 辰見町の信号 (turn point) -->
+        <g transform="translate(370,210)">
+          <rect x="-6" y="-24" width="12" height="30" rx="3" fill="#fff" stroke="var(--moss)" stroke-width="2.5"/>
+          <circle cx="0" cy="-17" r="3" fill="#e0554f"/>
+          <circle cx="0" cy="-9" r="3" fill="#e8b93f"/>
+          <circle cx="0" cy="-1" r="3" fill="#5c9a5c"/>
+        </g>
+        <text x="370" y="192" text-anchor="middle" font-size="13" fill="var(--ink)" font-weight="700">辰見町の信号</text>
+
+        <!-- landmark: JR駒ヶ根駅 (pass by, not a stop) -->
+        <g transform="translate(490,210)">
+          <circle r="14" fill="var(--moss)"/>
+          <rect x="-8" y="-7" width="16" height="12" rx="2" fill="#fff"/>
+          <polygon points="-8,-7 0,-13 8,-7" fill="#fff"/>
+        </g>
+        <text x="490" y="238" text-anchor="middle" font-size="12" fill="var(--ink)" font-weight="700">JR駒ヶ根駅を通過</text>
+
+        <!-- landmark: 踏切 (railway crossing, turn point) -->
+        <g transform="translate(537,210)">
+          <circle r="15" fill="#fff" stroke="var(--terracotta)" stroke-width="3"/>
+          <line x1="-7" y1="-7" x2="7" y2="7" stroke="var(--terracotta)" stroke-width="3" stroke-linecap="round"/>
+          <line x1="-7" y1="7" x2="7" y2="-7" stroke="var(--terracotta)" stroke-width="3" stroke-linecap="round"/>
+        </g>
+        <text x="537" y="192" text-anchor="middle" font-size="13" fill="var(--ink)" font-weight="700">踏切</text>
+
+        <!-- Ａ・コープ ファーマーズこまがね店 (via 辰見町の信号→踏切, supermarket) -->
+        <g transform="translate(537,130)">
+          <circle r="24" fill="var(--terracotta)"/>
+          <path d="M -12,-9 L 10,-9 L 8,5 L -10,5 Z" fill="#fff"/>
+          <circle cx="-6" cy="9" r="3" fill="#fff"/>
+          <circle cx="5" cy="9" r="3" fill="#fff"/>
+          <line x1="-12" y1="-9" x2="-16" y2="-13" stroke="#fff" stroke-width="2.4" stroke-linecap="round"/>
+        </g>
+        <text x="537" y="32" text-anchor="middle" font-size="12" fill="var(--ink)" font-weight="600">~7 min walk / 500m</text>
+        <text x="537" y="46" text-anchor="middle" font-size="14" fill="var(--ink)">徒歩約7分・500m</text>
+        <text x="537" y="60" text-anchor="middle" font-size="13" fill="var(--ink)" font-weight="600">A-Coop Supermarket</text>
+        <text x="537" y="76" text-anchor="middle" font-size="19" fill="var(--ink)" font-weight="bold">Ａ・コープ</text>
+        <text x="537" y="91" text-anchor="middle" font-size="12" fill="var(--ink)" font-weight="700">8時閉店</text>
+        <text x="537" y="103" text-anchor="middle" font-size="10" fill="var(--ink)" font-weight="600">Closes at 8 PM</text>
+
+        <!-- landmark: 駒ヶ根郵便局 (SE corner of the T-junction west of のまー) -->
+        <circle cx="410" cy="395" r="14" fill="#fff" stroke="var(--terracotta)" stroke-width="3"/>
+        <text x="410" y="400" text-anchor="middle" font-size="13" fill="var(--terracotta)" font-weight="bold">〒</text>
+        <text x="410" y="376" text-anchor="middle" font-size="12" fill="var(--ink)" font-weight="700">駒ヶ根郵便局</text>
+
+        <!-- landmark: バスターミナル (pass by, not a stop) -->
+        <g transform="translate(487,420)">
+          <circle r="14" fill="var(--terracotta)"/>
+          <rect x="-8" y="-6" width="16" height="10" rx="2" fill="#fff"/>
+          <circle cx="-4" cy="5" r="2" fill="#fff"/>
+          <circle cx="4" cy="5" r="2" fill="#fff"/>
+        </g>
+        <text x="487" y="398" text-anchor="middle" font-size="12" fill="var(--ink)" font-weight="700">バスターミナルを通過</text>
+
+        <!-- セブン-イレブン駒ヶ根中央店 (via west jog, then south) -->
+        <g transform="translate(630,420)">
+          <circle r="24" fill="var(--plum)"/>
+          <polygon points="-15,-7 0,-16 15,-7" fill="#fff"/>
+          <rect x="-13" y="-7" width="26" height="18" rx="2" fill="#fff"/>
+          <rect x="-4" y="3" width="8" height="9" fill="var(--plum)"/>
+        </g>
+        <text x="630" y="466" text-anchor="middle" font-size="19" fill="var(--ink)" font-weight="bold">セブン-イレブン</text>
+        <text x="630" y="484" text-anchor="middle" font-size="13" fill="var(--ink)" font-weight="600">7-Eleven Komagane Chuo</text>
+        <text x="630" y="503" text-anchor="middle" font-size="14" fill="var(--ink)">徒歩約9分・600m</text>
+        <text x="630" y="519" text-anchor="middle" font-size="12" fill="var(--ink)" font-weight="600">~9 min walk / 600m</text>
+
+        <!-- 宿 (inn) -->
+        <g transform="translate(370,300)">
+          <circle r="30" fill="var(--moss-dark)" stroke="#fff" stroke-width="3"/>
+          <polygon points="-14,2 0,-14 14,2" fill="var(--sand)"/>
+          <rect x="-11" y="2" width="22" height="14" fill="var(--sand)"/>
+          <rect x="-3" y="7" width="6" height="9" fill="var(--moss-dark)"/>
+        </g>
+        <rect x="310" y="228" width="120" height="40" rx="15" fill="var(--terracotta)"/>
+        <text x="370" y="247" text-anchor="middle" font-size="16" fill="#fff" font-weight="bold">のまー ★</text>
+        <text x="370" y="262" text-anchor="middle" font-size="11" fill="#fff">Guesthouse Nomar</text>
+      </svg>
+    </div>
+
+    <p class="note">※簡略図のため実際の道の形・縮尺とは異なります。方向は目安です。ご不明な点はスタッフまでお気軽にお尋ねください。<br>
+      <span class="en">Note: This is a simplified diagram, not to scale. Directions are approximate — please ask staff if you need help.</span>
+    </p>
+  </div>
+
+  <div class="footer">
+    guesthouse のまー　長野県駒ヶ根市北町5-16328-5　TEL: 080-8083-7355
+    <div class="en">5-16328-5 Kitamachi, Komagane, Nagano</div>
+  </div>
+</div>
+</body>
+</html>
