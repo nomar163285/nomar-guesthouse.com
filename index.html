@@ -283,6 +283,29 @@
     #room-photos { padding-top: 48px; }
   }
 
+  /* Whole House Rental */
+  .whole-house-card {
+    max-width: 720px; margin: 0 auto;
+    background: #fff; border: 1px solid var(--line); border-radius: 16px;
+    padding: 28px 24px; text-align: center;
+  }
+  .whole-house-card .lead { font-size: 0.98rem; margin-bottom: 22px; }
+  .whole-house-price {
+    list-style: none; text-align: left; margin: 0 auto 22px; max-width: 420px;
+    border: 1px solid var(--line); border-radius: 12px; overflow: hidden;
+  }
+  .whole-house-price li {
+    display: flex; justify-content: space-between; align-items: baseline; gap: 12px;
+    padding: 12px 16px; font-size: 0.92rem; border-top: 1px dashed var(--line);
+  }
+  .whole-house-price li:first-child { border-top: none; }
+  .whole-house-price .price { font-size: 1.25rem; font-weight: 800; color: var(--terracotta); }
+  .whole-house-price .price span { font-size: 0.8rem; font-weight: normal; color: var(--ink); }
+  .whole-house-card .cta-note { font-size: 0.92rem; margin-bottom: 14px; }
+  @media (min-width: 768px) {
+    .whole-house-card { padding: 36px 40px; }
+  }
+
   /* Amenities */
   .amenity-grid {
     display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px;
@@ -469,7 +492,7 @@
 <section class="top-banner"></section>
 
 <!-- ▼▼▼ お知らせテキスト：ここを書き換える ▼▼▼ -->
-<div class="notice-bar">📢 週末・祝日は、繁忙期料金として通常料金＋500円となります。ご了承ください。</div>
+<div class="notice-bar">📢 11/9〜4月下旬は一棟貸し営業中。グループ旅行やレンタルスペース利用に、貸切でご利用いただけます。詳しくは下記セクションをご覧ください。</div>
 <!-- ▲▲▲ お知らせテキスト：ここまで ▲▲▲ -->
 
 <section class="hero-below">
@@ -591,6 +614,25 @@
     <img src="assets/discord_1782892912422_1.jpg" alt="">
     <img src="assets/discord_1782894939496_0.png" alt="">
     <img src="assets/discord_1782892913359_3.jpg" alt="">
+  </div>
+</section>
+
+<section id="whole-house">
+  <div class="wrap">
+    <div class="section-title">
+      <span class="eyebrow">Whole House Rental</span>
+      <h2>一棟貸し営業のお知らせ（11/9〜4月下旬限定）</h2>
+    </div>
+    <div class="whole-house-card">
+      <p class="lead">11月9日〜4月下旬の期間、guesthouse のまーを一棟貸しいたします。グループ旅行やレンタルスペース利用に、貸切でご自由にお使いいただけます。<br>ご予約は4名から承ります。</p>
+      <ul class="whole-house-price">
+        <li><span>4名様まで</span><span class="price">¥22,000<span>／1泊</span></span></li>
+        <li><span>5名様以降</span><span class="price">+¥4,000<span>／1名</span></span></li>
+        <li><span>最大人数</span><span>12名様まで</span></li>
+      </ul>
+      <p class="cta-note">ご予約・お問い合わせはお気軽にどうぞ</p>
+      <a href="#reserve" class="btn btn-primary">予約・お問合せ</a>
+    </div>
   </div>
 </section>
 

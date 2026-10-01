@@ -256,6 +256,29 @@
     #room-photos { padding-top: 48px; }
   }
 
+  /* Whole House Rental */
+  .whole-house-card {
+    max-width: 720px; margin: 0 auto;
+    background: #fff; border: 1px solid var(--line); border-radius: 16px;
+    padding: 28px 24px; text-align: center;
+  }
+  .whole-house-card .lead { font-size: 0.98rem; margin-bottom: 22px; }
+  .whole-house-price {
+    list-style: none; text-align: left; margin: 0 auto 22px; max-width: 420px;
+    border: 1px solid var(--line); border-radius: 12px; overflow: hidden;
+  }
+  .whole-house-price li {
+    display: flex; justify-content: space-between; align-items: baseline; gap: 12px;
+    padding: 12px 16px; font-size: 0.92rem; border-top: 1px dashed var(--line);
+  }
+  .whole-house-price li:first-child { border-top: none; }
+  .whole-house-price .price { font-size: 1.25rem; font-weight: 800; color: var(--terracotta); }
+  .whole-house-price .price span { font-size: 0.8rem; font-weight: normal; color: var(--ink); }
+  .whole-house-card .cta-note { font-size: 0.92rem; margin-bottom: 14px; }
+  @media (min-width: 768px) {
+    .whole-house-card { padding: 36px 40px; }
+  }
+
   .amenity-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
   @media (min-width: 768px) {
     .amenity-grid { grid-template-columns: repeat(4, 1fr); }
@@ -405,7 +428,7 @@
 <section class="top-banner"></section>
 
 <!-- ▼▼▼ Notice text: edit here ▼▼▼ -->
-<div class="notice-bar">📢 Weekends and public holidays are subject to a peak season surcharge of +¥500 on top of the regular rate. Thank you for your understanding.</div>
+<div class="notice-bar">📢 From Nov 9 to late April, we offer whole-house rental. Perfect for group trips or as a private rental space. See the section below for details.</div>
 <!-- ▲▲▲ Notice text: end ▲▲▲ -->
 
 <section class="hero-below">
@@ -527,6 +550,25 @@
     <img src="assets/discord_1782892912422_1.jpg" alt="">
     <img src="assets/discord_1782894939496_0.png" alt="">
     <img src="assets/discord_1782892913359_3.jpg" alt="">
+  </div>
+</section>
+
+<section id="whole-house">
+  <div class="wrap">
+    <div class="section-title">
+      <span class="eyebrow">Whole House Rental</span>
+      <h2>Whole House Rental (Nov 9 – Late April Only)</h2>
+    </div>
+    <div class="whole-house-card">
+      <p class="lead">From November 9 to late April, guesthouse のまー is available for whole-house rental. Enjoy the entire house privately for group trips or as a rental space.<br>Bookings are accepted for groups of 4 or more.</p>
+      <ul class="whole-house-price">
+        <li><span>Up to 4 guests</span><span class="price">¥22,000<span> / night</span></span></li>
+        <li><span>5th guest onward</span><span class="price">+¥4,000<span> / person</span></span></li>
+        <li><span>Maximum</span><span>12 guests</span></li>
+      </ul>
+      <p class="cta-note">Feel free to contact us for reservations and inquiries.</p>
+      <a href="#reserve" class="btn btn-primary">Check Availability</a>
+    </div>
   </div>
 </section>
 
