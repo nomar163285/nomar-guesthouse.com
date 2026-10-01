@@ -19,7 +19,7 @@ tags: [system, definitions]
 | 公式ドメイン | nomar-guesthouse.com |
 | 英語表記（屋号） | guesthouse のまー |
 | ロゴ画像 | `assets/logo.jpeg` |
-| Instagram | @nomar042026 |
+| Instagram | @guesthouse_nomar |
 
 ## ロゴ
 
